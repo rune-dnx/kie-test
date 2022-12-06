@@ -223,6 +223,9 @@ else
     <dmn:extensionElements/>
     <dmn:variable id="_b324ee40-dbf2-40ba-ade9-99f4e0943f34" name="Previous Portfolio" typeRef="CollectionOftPortfolio"/>
   </dmn:inputData>
+  <dmn:textAnnotation id="_A9FC7E6C-E123-4401-9B27-104F5DD9C713" textFormat="text/plain">
+    <dmn:text>Test Anotation</dmn:text>
+  </dmn:textAnnotation>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_fa123803-1b02-4239-bb54-aa93b638a22c" name="DRG">
       <di:extension>
@@ -294,6 +297,15 @@ else
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
         <dc:Bounds x="569.2588291168213" y="474.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_A9FC7E6C-E123-4401-9B27-104F5DD9C713" dmnElementRef="_A9FC7E6C-E123-4401-9B27-104F5DD9C713" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="850" y="360" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_cb82140f-cbc4-40c4-b27d-22192b564d9b" dmnElementRef="_cb82140f-cbc4-40c4-b27d-22192b564d9b">
