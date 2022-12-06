@@ -1,831 +1,321 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<semantic:definitions xmlns:semantic="https://www.omg.org/spec/DMN/20191111/MODEL/"  xmlns:triso="http://www.trisotech.com/2015/triso/modeling"  xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/"  xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/"  xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"  xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn"  xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/"  xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase"  xmlns:drools="http://www.drools.org/kie/dmn/1.1"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:rss="http://purl.org/rss/2.0/"  xmlns:openapi="https://openapis.org/omg/extension/1.0"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/"   xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0"  xmlns="http://www.trisotech.com/definitions/_7a711558-a2a7-4659-ade3-6f29c7fa750c" id="_7a711558-a2a7-4659-ade3-6f29c7fa750c" name="7.1 Update Table Records  - KIE" namespace="http://www.trisotech.com/definitions/_7a711558-a2a7-4659-ade3-6f29c7fa750c" exporter="Decision Modeler" exporterVersion="8.3.4" xml:lang="en" triso:logoChoice="Default">
-    <semantic:extensionElements>
-        <tc:testCases>
-            <tc:testCase id="_f6f48a64-c65b-42e6-ad38-49f6c642dbb5" name="Test case 1">
-                <tc:inputNode name="Trade">
-                    <tc:component name="ID">
-                        <tc:value xsi:type="double">2</tc:value>
-                    </tc:component>
-                    <tc:component name="Timestamp">
-                        <tc:value xsi:type="dateTime">2022-10-02T10:40:10</tc:value>
-                    </tc:component>
-                    <tc:component name="Account">
-                        <tc:value xsi:type="string">Rune</tc:value>
-                    </tc:component>
-                    <tc:component name="Ticker">
-                        <tc:value xsi:type="string">AMZN</tc:value>
-                    </tc:component>
-                    <tc:component name="TradeType">
-                        <tc:value xsi:type="string">Buy</tc:value>
-                    </tc:component>
-                    <tc:component name="Shares">
-                        <tc:value xsi:type="double">10</tc:value>
-                    </tc:component>
-                    <tc:component name="Price">
-                        <tc:value xsi:type="double">3399.79</tc:value>
-                    </tc:component>
-                    <tc:component name="Value">
-                        <tc:value xsi:type="double">33997.9</tc:value>
-                    </tc:component>
-                </tc:inputNode>
-                <tc:inputNode name="Previous Portfolio">
-                    <tc:list/>
-                </tc:inputNode>
-                <tc:resultNode id="_24643a05-e562-4086-a890-b606c84d3739" name="Updated Portfolio Table">
-                    <tc:expected>
-                        <tc:list>
-                            <tc:item>
-                                <tc:component name="ID">
-                                    <tc:value xsi:nil="true"/>
-                                </tc:component>
-                                <tc:component name="Account">
-                                    <tc:value xsi:nil="true"/>
-                                </tc:component>
-                                <tc:component name="Ticker">
-                                    <tc:value xsi:nil="true"/>
-                                </tc:component>
-                                <tc:component name="Price">
-                                    <tc:value xsi:type="xsd:double">1</tc:value>
-                                </tc:component>
-                                <tc:component name="TimeStamp">
-                                    <tc:value xsi:type="xsd:dateTime">2022-10-02T06:43:11Z</tc:value>
-                                </tc:component>
-                                <tc:component name="NetShares">
-                                    <tc:value xsi:nil="true"/>
-                                </tc:component>
-                                <tc:component name="CurrentValue">
-                                    <tc:value xsi:nil="true"/>
-                                </tc:component>
-                                <tc:component name="GainLoss">
-                                    <tc:value xsi:nil="true"/>
-                                </tc:component>
-                            </tc:item>
-                        </tc:list>
-                    </tc:expected>
-                </tc:resultNode>
-                <tc:resultNode id="_306172a6-0d6d-4e96-9a74-5c1952a4bf95" name="New Portfolio Record">
-                    <tc:expected>
-                        <tc:component name="ID">
-                            <tc:value xsi:type="xsd:double">0</tc:value>
-                        </tc:component>
-                        <tc:component name="Account">
-                            <tc:value xsi:type="xsd:string">Rune</tc:value>
-                        </tc:component>
-                        <tc:component name="Ticker">
-                            <tc:value xsi:type="xsd:string">AMZN</tc:value>
-                        </tc:component>
-                        <tc:component name="Price">
-                            <tc:value xsi:type="xsd:double">3399.79</tc:value>
-                        </tc:component>
-                        <tc:component name="TimeStamp">
-                            <tc:value xsi:type="xsd:dateTime">2022-10-02T06:43:11Z</tc:value>
-                        </tc:component>
-                        <tc:component name="NetShares">
-                            <tc:value xsi:type="xsd:double">10</tc:value>
-                        </tc:component>
-                        <tc:component name="CurrentValue">
-                            <tc:value xsi:type="xsd:double">33997.9</tc:value>
-                        </tc:component>
-                        <tc:component name="GainLoss">
-                            <tc:value xsi:type="xsd:double">0</tc:value>
-                        </tc:component>
-                    </tc:expected>
-                </tc:resultNode>
-            </tc:testCase>
-            <tc:testCase id="_9bc84003-f9e2-4dc6-a4e2-e53732ef9fed" name="Test case 2">
-                <tc:inputNode name="Trade">
-                    <tc:component name="ID">
-                        <tc:value xsi:type="double">2</tc:value>
-                    </tc:component>
-                    <tc:component name="Timestamp">
-                        <tc:value xsi:type="dateTime">2022-10-02T10:40:10</tc:value>
-                    </tc:component>
-                    <tc:component name="Account">
-                        <tc:value xsi:type="string">Rune</tc:value>
-                    </tc:component>
-                    <tc:component name="Ticker">
-                        <tc:value xsi:type="string">AMZN</tc:value>
-                    </tc:component>
-                    <tc:component name="TradeType">
-                        <tc:value xsi:type="string">Buy</tc:value>
-                    </tc:component>
-                    <tc:component name="Shares">
-                        <tc:value xsi:type="double">10</tc:value>
-                    </tc:component>
-                    <tc:component name="Price">
-                        <tc:value xsi:type="double">3399.79</tc:value>
-                    </tc:component>
-                    <tc:component name="Value">
-                        <tc:value xsi:type="double">33997.9</tc:value>
-                    </tc:component>
-                </tc:inputNode>
-                <tc:inputNode name="Previous Portfolio">
-                    <tc:list>
-                        <tc:item>
-                            <tc:component name="ID">
-                                <tc:value xsi:type="double">1</tc:value>
-                            </tc:component>
-                            <tc:component name="Account">
-                                <tc:value xsi:type="string">Rune</tc:value>
-                            </tc:component>
-                            <tc:component name="Ticker">
-                                <tc:value xsi:type="string">Cash</tc:value>
-                            </tc:component>
-                            <tc:component name="Price">
-                                <tc:value xsi:type="double">1</tc:value>
-                            </tc:component>
-                            <tc:component name="Timestamp">
-                                <tc:value xsi:type="dateTime">2022-10-02T09:10:57</tc:value>
-                            </tc:component>
-                            <tc:component name="NetShares">
-                                <tc:value xsi:type="double">66002.1</tc:value>
-                            </tc:component>
-                            <tc:component name="CurrentValue">
-                                <tc:value xsi:type="double">66002.1</tc:value>
-                            </tc:component>
-                            <tc:component name="GainLoss">
-                                <tc:value xsi:type="double">0</tc:value>
-                            </tc:component>
-                        </tc:item>
-                    </tc:list>
-                </tc:inputNode>
-                <tc:resultNode id="_0f138d9c-3830-484f-8623-e0975e48f034" name="Updated Portfolio Table">
-                    <tc:expected>
-                        <tc:list>
-                            <tc:item>
-                                <tc:component name="ID">
-                                    <tc:value xsi:type="xsd:double">1</tc:value>
-                                </tc:component>
-                                <tc:component name="Account">
-                                    <tc:value xsi:type="xsd:string">Rune</tc:value>
-                                </tc:component>
-                                <tc:component name="Ticker">
-                                    <tc:value xsi:type="xsd:string">Cash</tc:value>
-                                </tc:component>
-                                <tc:component name="Price">
-                                    <tc:value xsi:type="xsd:double">1</tc:value>
-                                </tc:component>
-                                <tc:component name="Timestamp">
-                                    <tc:value xsi:type="xsd:dateTime">2022-10-02T07:10:27Z</tc:value>
-                                </tc:component>
-                                <tc:component name="NetShares">
-                                    <tc:value xsi:type="xsd:double">32004.2</tc:value>
-                                </tc:component>
-                                <tc:component name="CurrentValue">
-                                    <tc:value xsi:type="xsd:double">32004.2</tc:value>
-                                </tc:component>
-                                <tc:component name="GainLoss">
-                                    <tc:value xsi:type="xsd:double">0</tc:value>
-                                </tc:component>
-                            </tc:item>
-                        </tc:list>
-                    </tc:expected>
-                </tc:resultNode>
-                <tc:resultNode id="_b2b86a90-87cd-4e3f-baff-81466a39b16c" name="New Portfolio Record">
-                    <tc:expected>
-                        <tc:component name="ID">
-                            <tc:value xsi:type="xsd:double">0</tc:value>
-                        </tc:component>
-                        <tc:component name="Account">
-                            <tc:value xsi:type="xsd:string">Rune</tc:value>
-                        </tc:component>
-                        <tc:component name="Ticker">
-                            <tc:value xsi:type="xsd:string">AMZN</tc:value>
-                        </tc:component>
-                        <tc:component name="Price">
-                            <tc:value xsi:type="xsd:double">3399.79</tc:value>
-                        </tc:component>
-                        <tc:component name="Timestamp">
-                            <tc:value xsi:type="xsd:dateTime">2022-10-02T07:10:27Z</tc:value>
-                        </tc:component>
-                        <tc:component name="NetShares">
-                            <tc:value xsi:type="xsd:double">10</tc:value>
-                        </tc:component>
-                        <tc:component name="CurrentValue">
-                            <tc:value xsi:type="xsd:double">33997.9</tc:value>
-                        </tc:component>
-                        <tc:component name="GainLoss">
-                            <tc:value xsi:type="xsd:double">0</tc:value>
-                        </tc:component>
-                    </tc:expected>
-                </tc:resultNode>
-            </tc:testCase>
-            <tc:testCase id="_53beebf5-0c31-48e5-a676-bc0cab63fae3" name="Test case 3">
-                <tc:inputNode name="Trade">
-                    <tc:component name="ID">
-                        <tc:value xsi:type="double">2</tc:value>
-                    </tc:component>
-                    <tc:component name="Timestamp">
-                        <tc:value xsi:type="dateTime">2022-10-02T10:40:10</tc:value>
-                    </tc:component>
-                    <tc:component name="Account">
-                        <tc:value xsi:type="string">Rune</tc:value>
-                    </tc:component>
-                    <tc:component name="Ticker">
-                        <tc:value xsi:type="string">AMZN</tc:value>
-                    </tc:component>
-                    <tc:component name="TradeType">
-                        <tc:value xsi:type="string">Sell</tc:value>
-                    </tc:component>
-                    <tc:component name="Shares">
-                        <tc:value xsi:type="double">15</tc:value>
-                    </tc:component>
-                    <tc:component name="Price">
-                        <tc:value xsi:type="double">3401.07</tc:value>
-                    </tc:component>
-                    <tc:component name="Value">
-                        <tc:value xsi:type="double">-17007.35</tc:value>
-                    </tc:component>
-                </tc:inputNode>
-                <tc:inputNode name="Previous Portfolio">
-                    <tc:list>
-                        <tc:item>
-                            <tc:component name="ID">
-                                <tc:value xsi:type="double">2</tc:value>
-                            </tc:component>
-                            <tc:component name="Account">
-                                <tc:value xsi:type="string">Rune</tc:value>
-                            </tc:component>
-                            <tc:component name="Ticker">
-                                <tc:value xsi:type="string">AMZN</tc:value>
-                            </tc:component>
-                            <tc:component name="Price">
-                                <tc:value xsi:type="double">3399.79</tc:value>
-                            </tc:component>
-                            <tc:component name="Timestamp">
-                                <tc:value xsi:type="dateTime">2022-10-15T09:14:08-07:00</tc:value>
-                            </tc:component>
-                            <tc:component name="NetShares">
-                                <tc:value xsi:type="double">10</tc:value>
-                            </tc:component>
-                            <tc:component name="CurrentValue">
-                                <tc:value xsi:type="double">33997.9</tc:value>
-                            </tc:component>
-                            <tc:component name="GainLoss">
-                                <tc:value xsi:type="double">0</tc:value>
-                            </tc:component>
-                        </tc:item>
-                        <tc:item>
-                            <tc:component name="ID">
-                                <tc:value xsi:type="double">2</tc:value>
-                            </tc:component>
-                            <tc:component name="Account">
-                                <tc:value xsi:type="string">Rune</tc:value>
-                            </tc:component>
-                            <tc:component name="Ticker">
-                                <tc:value xsi:type="string">Cash</tc:value>
-                            </tc:component>
-                            <tc:component name="Price">
-                                <tc:value xsi:type="double">1</tc:value>
-                            </tc:component>
-                            <tc:component name="Timestamp">
-                                <tc:value xsi:type="dateTime">2022-10-15T09:18:01-06:00</tc:value>
-                            </tc:component>
-                            <tc:component name="NetShares">
-                                <tc:value xsi:type="double">66002.1</tc:value>
-                            </tc:component>
-                            <tc:component name="CurrentValue">
-                                <tc:value xsi:type="double">66002.1</tc:value>
-                            </tc:component>
-                            <tc:component name="GainLoss">
-                                <tc:value xsi:type="double">0</tc:value>
-                            </tc:component>
-                        </tc:item>
-                    </tc:list>
-                </tc:inputNode>
-                <tc:resultNode id="_a9f9e071-5cb4-43fb-9e63-83b5faef6e84" name="Updated Portfolio Table">
-                    <tc:expected>
-                        <tc:list>
-                            <tc:item>
-                                <tc:component name="ID">
-                                    <tc:value xsi:type="xsd:double">2</tc:value>
-                                </tc:component>
-                                <tc:component name="Account">
-                                    <tc:value xsi:type="xsd:string">Rune</tc:value>
-                                </tc:component>
-                                <tc:component name="Ticker">
-                                    <tc:value xsi:type="xsd:string">Cash</tc:value>
-                                </tc:component>
-                                <tc:component name="Price">
-                                    <tc:value xsi:type="xsd:double">1</tc:value>
-                                </tc:component>
-                                <tc:component name="Timestamp">
-                                    <tc:value xsi:type="xsd:dateTime">2022-10-15T07:35:35Z</tc:value>
-                                </tc:component>
-                                <tc:component name="NetShares">
-                                    <tc:value xsi:type="xsd:double">83009.45</tc:value>
-                                </tc:component>
-                                <tc:component name="CurrentValue">
-                                    <tc:value xsi:type="xsd:double">83009.45</tc:value>
-                                </tc:component>
-                                <tc:component name="GainLoss">
-                                    <tc:value xsi:type="xsd:double">0</tc:value>
-                                </tc:component>
-                            </tc:item>
-                            <tc:item>
-                                <tc:component name="ID">
-                                    <tc:value xsi:type="xsd:double">2</tc:value>
-                                </tc:component>
-                                <tc:component name="Account">
-                                    <tc:value xsi:type="xsd:string">Rune</tc:value>
-                                </tc:component>
-                                <tc:component name="Ticker">
-                                    <tc:value xsi:type="xsd:string">AMZN</tc:value>
-                                </tc:component>
-                                <tc:component name="Price">
-                                    <tc:value xsi:type="xsd:double">3401.07</tc:value>
-                                </tc:component>
-                                <tc:component name="Timestamp">
-                                    <tc:value xsi:type="xsd:dateTime">2022-10-15T07:35:35Z</tc:value>
-                                </tc:component>
-                                <tc:component name="NetShares">
-                                    <tc:value xsi:type="xsd:double">25</tc:value>
-                                </tc:component>
-                                <tc:component name="CurrentValue">
-                                    <tc:value xsi:type="xsd:double">85026.75</tc:value>
-                                </tc:component>
-                                <tc:component name="GainLoss">
-                                    <tc:value xsi:type="xsd:double">12.8</tc:value>
-                                </tc:component>
-                            </tc:item>
-                        </tc:list>
-                    </tc:expected>
-                </tc:resultNode>
-                <tc:resultNode id="_9f003133-514a-471a-a3c7-a89cf8516659" name="New Portfolio Record">
-                    <tc:expected>
-                        <tc:value xsi:nil="true"/>
-                    </tc:expected>
-                </tc:resultNode>
-            </tc:testCase>
-            <tc:testCase id="_14c09a3a-85c8-4a6c-9ff7-c47565d53b9b" name="Test case 4">
-                <tc:inputNode name="Trade">
-                    <tc:component name="ID">
-                        <tc:value xsi:type="double">22</tc:value>
-                    </tc:component>
-                    <tc:component name="Timestamp">
-                        <tc:value xsi:type="dateTime">2022-10-02T10:40:10</tc:value>
-                    </tc:component>
-                    <tc:component name="Account">
-                        <tc:value xsi:type="string">Rune</tc:value>
-                    </tc:component>
-                    <tc:component name="Ticker">
-                        <tc:value xsi:type="string">TSLA</tc:value>
-                    </tc:component>
-                    <tc:component name="TradeType">
-                        <tc:value xsi:type="string">Sell</tc:value>
-                    </tc:component>
-                    <tc:component name="Shares">
-                        <tc:value xsi:type="double">10</tc:value>
-                    </tc:component>
-                    <tc:component name="Price">
-                        <tc:value xsi:type="double">3401.07</tc:value>
-                    </tc:component>
-                    <tc:component name="Value">
-                        <tc:value xsi:type="double">17007.35</tc:value>
-                    </tc:component>
-                </tc:inputNode>
-                <tc:inputNode name="Previous Portfolio">
-                    <tc:list>
-                        <tc:item>
-                            <tc:component name="ID">
-                                <tc:value xsi:type="double">2</tc:value>
-                            </tc:component>
-                            <tc:component name="Account">
-                                <tc:value xsi:type="string">Rune</tc:value>
-                            </tc:component>
-                            <tc:component name="Ticker">
-                                <tc:value xsi:type="string">AMZN</tc:value>
-                            </tc:component>
-                            <tc:component name="Price">
-                                <tc:value xsi:type="double">3399.79</tc:value>
-                            </tc:component>
-                            <tc:component name="Timestamp">
-                                <tc:value xsi:type="dateTime">2022-10-15T09:14:08-07:00</tc:value>
-                            </tc:component>
-                            <tc:component name="NetShares">
-                                <tc:value xsi:type="double">10</tc:value>
-                            </tc:component>
-                            <tc:component name="CurrentValue">
-                                <tc:value xsi:type="double">33997.9</tc:value>
-                            </tc:component>
-                            <tc:component name="GainLoss">
-                                <tc:value xsi:type="double">0</tc:value>
-                            </tc:component>
-                        </tc:item>
-                        <tc:item>
-                            <tc:component name="ID">
-                                <tc:value xsi:type="double">2</tc:value>
-                            </tc:component>
-                            <tc:component name="Account">
-                                <tc:value xsi:type="string">Rune</tc:value>
-                            </tc:component>
-                            <tc:component name="Ticker">
-                                <tc:value xsi:type="string">Cash</tc:value>
-                            </tc:component>
-                            <tc:component name="Price">
-                                <tc:value xsi:type="double">1</tc:value>
-                            </tc:component>
-                            <tc:component name="Timestamp">
-                                <tc:value xsi:type="dateTime">2022-10-15T09:18:01-06:00</tc:value>
-                            </tc:component>
-                            <tc:component name="NetShares">
-                                <tc:value xsi:type="double">66002.1</tc:value>
-                            </tc:component>
-                            <tc:component name="CurrentValue">
-                                <tc:value xsi:type="double">66002.1</tc:value>
-                            </tc:component>
-                            <tc:component name="GainLoss">
-                                <tc:value xsi:type="double">0</tc:value>
-                            </tc:component>
-                        </tc:item>
-                    </tc:list>
-                </tc:inputNode>
-                <tc:resultNode id="_a47ee093-5fbe-40c0-ac4b-84e0a039cf5c" name="Updated Portfolio Table">
-                    <tc:expected>
-                        <tc:list>
-                            <tc:item>
-                                <tc:component name="ID">
-                                    <tc:value xsi:type="xsd:double">2</tc:value>
-                                </tc:component>
-                                <tc:component name="Account">
-                                    <tc:value xsi:type="xsd:string">Rune</tc:value>
-                                </tc:component>
-                                <tc:component name="Ticker">
-                                    <tc:value xsi:type="xsd:string">Cash</tc:value>
-                                </tc:component>
-                                <tc:component name="Price">
-                                    <tc:value xsi:type="xsd:double">1</tc:value>
-                                </tc:component>
-                                <tc:component name="Timestamp">
-                                    <tc:value xsi:type="xsd:dateTime">2022-10-15T07:44:54Z</tc:value>
-                                </tc:component>
-                                <tc:component name="NetShares">
-                                    <tc:value xsi:type="xsd:double">48994.75</tc:value>
-                                </tc:component>
-                                <tc:component name="CurrentValue">
-                                    <tc:value xsi:type="xsd:double">48994.75</tc:value>
-                                </tc:component>
-                                <tc:component name="GainLoss">
-                                    <tc:value xsi:type="xsd:double">0</tc:value>
-                                </tc:component>
-                            </tc:item>
-                        </tc:list>
-                    </tc:expected>
-                </tc:resultNode>
-                <tc:resultNode id="_34be8865-3be4-4c49-bba3-eadc55279df1" name="New Portfolio Record">
-                    <tc:expected>
-                        <tc:component name="ID">
-                            <tc:value xsi:type="xsd:double">0</tc:value>
-                        </tc:component>
-                        <tc:component name="Account">
-                            <tc:value xsi:type="xsd:string">Rune</tc:value>
-                        </tc:component>
-                        <tc:component name="Ticker">
-                            <tc:value xsi:type="xsd:string">TSLA</tc:value>
-                        </tc:component>
-                        <tc:component name="Price">
-                            <tc:value xsi:type="xsd:double">3401.07</tc:value>
-                        </tc:component>
-                        <tc:component name="Timestamp">
-                            <tc:value xsi:type="xsd:dateTime">2022-10-15T07:44:54Z</tc:value>
-                        </tc:component>
-                        <tc:component name="NetShares">
-                            <tc:value xsi:type="xsd:double">10</tc:value>
-                        </tc:component>
-                        <tc:component name="CurrentValue">
-                            <tc:value xsi:type="xsd:double">34010.7</tc:value>
-                        </tc:component>
-                        <tc:component name="GainLoss">
-                            <tc:value xsi:type="xsd:double">0</tc:value>
-                        </tc:component>
-                    </tc:expected>
-                </tc:resultNode>
-            </tc:testCase>
-        </tc:testCases>
-    </semantic:extensionElements>
-    <semantic:itemDefinition name="tTrade" label="tTrade">
-        <semantic:itemComponent id="_dde77a34-36ba-43dd-8e75-f671bc1a6dc6" name="ID">
-            <semantic:typeRef>number</semantic:typeRef>
-        </semantic:itemComponent>
-        <semantic:itemComponent id="_5037a6bd-d14c-4463-99e0-3a8d2b48b412" name="Timestamp">
-            <semantic:typeRef>dateTime</semantic:typeRef>
-        </semantic:itemComponent>
-        <semantic:itemComponent id="_0385af5a-b9ba-4d92-bfd0-5cfe16d90251" name="Account">
-            <semantic:typeRef>string</semantic:typeRef>
-        </semantic:itemComponent>
-        <semantic:itemComponent id="_8bb1f4b1-572f-4b28-a9f0-8a32fffebe4d" name="Ticker">
-            <semantic:typeRef>string</semantic:typeRef>
-        </semantic:itemComponent>
-        <semantic:itemComponent id="_a7530575-a42a-4500-812d-6dea44f02147" name="TradeType">
-            <semantic:typeRef>tTradeType</semantic:typeRef>
-            <semantic:allowedValues triso:constraintsType="enumeration">
-                <semantic:extensionElements>
-                    <triso:constraintDetails>
-                        <triso:display>"Init", "Buy", "Sell"</triso:display>
-                        <triso:choices>
-                            <triso:value>"Init"</triso:value>
-                            <triso:display>"Init"</triso:display>
-                        </triso:choices>
-                        <triso:choices>
-                            <triso:value>"Buy"</triso:value>
-                            <triso:display>"Buy"</triso:display>
-                        </triso:choices>
-                        <triso:choices>
-                            <triso:value>"Sell"</triso:value>
-                            <triso:display>"Sell"</triso:display>
-                        </triso:choices>
-                    </triso:constraintDetails>
-                </semantic:extensionElements>
-                <semantic:text>"Init","Buy","Sell"</semantic:text>
-            </semantic:allowedValues>
-        </semantic:itemComponent>
-        <semantic:itemComponent id="_c4eba333-afc4-46ed-8356-f02c2a74facf" name="Shares">
-            <semantic:typeRef>number</semantic:typeRef>
-        </semantic:itemComponent>
-        <semantic:itemComponent id="_10fb8af0-92a0-441b-ab67-64db23d5665f" name="Price">
-            <semantic:typeRef>number</semantic:typeRef>
-        </semantic:itemComponent>
-        <semantic:itemComponent id="_5bbf97ef-0832-4dd7-b376-6d016d335de1" name="Value">
-            <semantic:typeRef>number</semantic:typeRef>
-        </semantic:itemComponent>
-    </semantic:itemDefinition>
-    <semantic:itemDefinition name="tPortfolio" label="tPortfolio">
-        <semantic:itemComponent id="_b9755655-eced-49ea-9eed-cceded8dc2d2" name="ID">
-            <semantic:typeRef>number</semantic:typeRef>
-        </semantic:itemComponent>
-        <semantic:itemComponent id="_0786522e-ea03-4e74-aed0-f15e59f2db31" name="Account">
-            <semantic:typeRef>string</semantic:typeRef>
-        </semantic:itemComponent>
-        <semantic:itemComponent id="_f441770e-a64a-43a5-b8a4-8b9db9396700" name="Ticker">
-            <semantic:typeRef>string</semantic:typeRef>
-        </semantic:itemComponent>
-        <semantic:itemComponent id="_6595f3eb-a565-4792-ac47-ab68281a1082" name="Price">
-            <semantic:typeRef>number</semantic:typeRef>
-        </semantic:itemComponent>
-        <semantic:itemComponent id="_2ed9bc6c-3757-45f3-b936-8165164b8fb7" name="Timestamp">
-            <semantic:typeRef>dateTime</semantic:typeRef>
-        </semantic:itemComponent>
-        <semantic:itemComponent id="_41596683-97e1-4fc2-a4d8-627a0fbad551" name="NetShares">
-            <semantic:typeRef>number</semantic:typeRef>
-        </semantic:itemComponent>
-        <semantic:itemComponent id="_7785449e-4ed0-4400-a5e0-99dbe42447b1" name="CurrentValue">
-            <semantic:typeRef>number</semantic:typeRef>
-        </semantic:itemComponent>
-        <semantic:itemComponent id="_cb7fdea1-0917-41ab-9171-58ef6b6e670d" name="GainLoss">
-            <semantic:typeRef>number</semantic:typeRef>
-        </semantic:itemComponent>
-    </semantic:itemDefinition>
-    <semantic:itemDefinition name="tTradeType" label="tTradeType">
-        <semantic:typeRef>string</semantic:typeRef>
-        <semantic:allowedValues triso:constraintsType="enumeration">
-            <semantic:extensionElements>
-                <triso:constraintDetails>
-                    <triso:display>"Buy", "Sell", "Init"</triso:display>
-                    <triso:choices>
-                        <triso:value>"Buy"</triso:value>
-                        <triso:display>"Buy"</triso:display>
-                    </triso:choices>
-                    <triso:choices>
-                        <triso:value>"Sell"</triso:value>
-                        <triso:display>"Sell"</triso:display>
-                    </triso:choices>
-                    <triso:choices>
-                        <triso:value>"Init"</triso:value>
-                        <triso:display>"Init"</triso:display>
-                    </triso:choices>
-                </triso:constraintDetails>
-            </semantic:extensionElements>
-            <semantic:text>"Buy","Sell","Init"</semantic:text>
-        </semantic:allowedValues>
-    </semantic:itemDefinition>
-    <semantic:itemDefinition name="CollectionOftTrade" label="CollectionOftTrade" isCollection="true">
-        <semantic:typeRef>tTrade</semantic:typeRef>
-    </semantic:itemDefinition>
-    <semantic:itemDefinition name="CollectionOftPortfolio" label="CollectionOftPortfolio" isCollection="true">
-        <semantic:typeRef>tPortfolio</semantic:typeRef>
-    </semantic:itemDefinition>
-    <semantic:decisionService id="_7a711558-a2a7-4659-ade3-6f29c7fa750c_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
-        <semantic:variable name="Whole Model Decision Service" id="_7a711558-a2a7-4659-ade3-6f29c7fa750c_DS_VAR" typeRef="Any"/>
-        <semantic:outputDecision href="#_686ad1c6-14d5-4a07-8b1a-f60fb23670fe"/>
-        <semantic:outputDecision href="#_03f95d0c-ea5b-43fb-b743-cd9e9581be6b"/>
-        <semantic:inputData href="#_bd6ee718-96e2-4c13-b05a-3326501d3e2c"/>
-        <semantic:inputData href="#_48b6ebc3-9345-4f01-9aa4-4a17a266f9d4"/>
-    </semantic:decisionService>
-    <semantic:decisionService id="_fa123803-1b02-4239-bb54-aa93b638a22c_DS" name="Diagram Update Portfolio" triso:dynamicDecisionService="true">
-        <semantic:variable name="Diagram Update Portfolio" id="_fa123803-1b02-4239-bb54-aa93b638a22c_DS_VAR" typeRef="Any"/>
-        <semantic:outputDecision href="#_686ad1c6-14d5-4a07-8b1a-f60fb23670fe"/>
-        <semantic:outputDecision href="#_03f95d0c-ea5b-43fb-b743-cd9e9581be6b"/>
-        <semantic:inputData href="#_bd6ee718-96e2-4c13-b05a-3326501d3e2c"/>
-        <semantic:inputData href="#_48b6ebc3-9345-4f01-9aa4-4a17a266f9d4"/>
-    </semantic:decisionService>
-    <semantic:decision id="_686ad1c6-14d5-4a07-8b1a-f60fb23670fe" name="Updated Portfolio Table" triso:readOnly="false">
-        <semantic:variable name="Updated Portfolio Table" id="_2d4117f6-d0a2-4bc4-8cc4-4d437676aecd" typeRef="CollectionOftPortfolio"/>
-        <semantic:informationRequirement id="_cb82140f-cbc4-40c4-b27d-22192b564d9b" triso:readOnly="false">
-            <semantic:requiredInput href="#_bd6ee718-96e2-4c13-b05a-3326501d3e2c"/>
-        </semantic:informationRequirement>
-        <semantic:informationRequirement id="_359b8910-c1cb-4f57-9b16-2425076168a8" triso:readOnly="false">
-            <semantic:requiredInput href="#_48b6ebc3-9345-4f01-9aa4-4a17a266f9d4"/>
-        </semantic:informationRequirement>
-        <semantic:knowledgeRequirement id="_bcd30cb7-e10f-4c1a-b518-69f7b22d573a" triso:readOnly="false">
-            <semantic:requiredKnowledge href="#_e180eaec-6e1e-450c-a6ff-31457b2f4bf4"/>
-        </semantic:knowledgeRequirement>
-        <semantic:literalExpression id="_68a7e402-90c9-4043-be70-c85ea768e709" triso:descriptionVisible="false" typeRef="CollectionOftPortfolio" triso:expressionId="_eaa8a79a-0b5e-46e9-b710-d973e43da61d">
-            <semantic:text>if Previous Portfolio[Ticker=Trade.Ticker]!=[] then for x in ["Cash", Trade.Ticker] return Updated record(Previous Portfolio[Ticker=x][1], Trade) else [Updated record(Previous Portfolio[Ticker="Cash"][1],Trade)]</semantic:text>
-        </semantic:literalExpression>
-    </semantic:decision>
-    <semantic:decision id="_03f95d0c-ea5b-43fb-b743-cd9e9581be6b" name="New Portfolio Record" triso:readOnly="false">
-        <semantic:variable name="New Portfolio Record" id="_27e4d886-7aff-42d2-a40a-8367c59fe4ef" typeRef="tPortfolio"/>
-        <semantic:informationRequirement id="_3fbc25b7-62d5-4095-a65f-c2e2c87fa387" triso:readOnly="false">
-            <semantic:requiredInput href="#_bd6ee718-96e2-4c13-b05a-3326501d3e2c"/>
-        </semantic:informationRequirement>
-        <semantic:informationRequirement id="_84efbcbe-5321-42ff-ad6e-a78c176ca2a9" triso:readOnly="false">
-            <semantic:requiredInput href="#_48b6ebc3-9345-4f01-9aa4-4a17a266f9d4"/>
-        </semantic:informationRequirement>
-        <semantic:context id="_5de23787-9815-4f26-a0a4-ea85a07c485f" triso:descriptionVisible="false" typeRef="tPortfolio" triso:expressionId="_167efa5b-a9b8-47d7-84cc-d3f96d5a2cd0">
-            <semantic:contextEntry id="_bd991483-c5f6-4957-af47-4c5ffbf19890">
-                <semantic:variable name="Trade Portfolio Record" id="_5f159fda-2603-43b2-97c4-196b5da7a9c3" typeRef="tPortfolio"/>
-                <semantic:context id="_6965fc55-2e55-47ad-a8ce-7d792df1762b" triso:descriptionVisible="false">
-                    <semantic:contextEntry id="_c2de739f-c6a6-4501-87df-486273acc3d2">
-                        <semantic:variable name="ID" id="_700ebaf5-56f7-4c4d-99a9-f0c023605d68" typeRef="number"/>
-                        <semantic:literalExpression id="_820f5074-d7ae-4c86-a975-0ac6db413de9" triso:descriptionVisible="false">
-                            <semantic:text>0</semantic:text>
-                        </semantic:literalExpression>
-                    </semantic:contextEntry>
-                    <semantic:contextEntry id="_28bff011-bcac-4462-9263-e2d1f046c00a">
-                        <semantic:variable name="Account" id="_4ca83fdc-543f-4676-90c0-3bd2f61d4766" typeRef="string"/>
-                        <semantic:literalExpression id="_844c4bc5-f77d-4d78-8461-03d0b7857ca5" triso:descriptionVisible="false">
-                            <semantic:text>Trade.Account</semantic:text>
-                        </semantic:literalExpression>
-                    </semantic:contextEntry>
-                    <semantic:contextEntry id="_80e24c54-1247-4a1e-ac9d-f45d7738fc4d">
-                        <semantic:variable name="Ticker" id="_ccc2ba78-0af5-4af1-89d2-7db090571be7" typeRef="string"/>
-                        <semantic:literalExpression id="_056ef47a-9c9d-4d9f-b679-92ed2127bd8e" triso:descriptionVisible="false">
-                            <semantic:text>Trade.Ticker</semantic:text>
-                        </semantic:literalExpression>
-                    </semantic:contextEntry>
-                    <semantic:contextEntry id="_bc2e1c9e-f674-4ee5-9db4-8b6ef0c2df14">
-                        <semantic:variable name="Price" id="_37f0c81e-bc3b-44ec-a855-3c7c40712b2a" typeRef="number"/>
-                        <semantic:literalExpression id="_5d089586-a484-4db7-9a9e-62771152f785" triso:descriptionVisible="false">
-                            <semantic:text>Trade.Price</semantic:text>
-                        </semantic:literalExpression>
-                    </semantic:contextEntry>
-                    <semantic:contextEntry id="_56da78b7-3112-4d87-a022-86c9fbbba24b">
-                        <semantic:variable name="Timestamp" id="_6eb8c6b0-b44f-4fa6-8044-e6ff0bac595e" typeRef="dateTime"/>
-                        <semantic:literalExpression id="_8b3b19ae-682c-4de4-a6c1-c74cd022a8a5" triso:descriptionVisible="false">
-                            <semantic:text>now()</semantic:text>
-                        </semantic:literalExpression>
-                    </semantic:contextEntry>
-                    <semantic:contextEntry id="_b3946cc6-2a1d-40fb-ba0d-5abac39cfe4a">
-                        <semantic:variable name="NetShares" id="_a573c098-8978-4f7a-b2cc-84a8816d4ca3" typeRef="number"/>
-                        <semantic:literalExpression id="_ca4db4bf-3161-4bb4-9580-e511ae78bb41" triso:descriptionVisible="false">
-                            <semantic:text>Trade.Shares</semantic:text>
-                        </semantic:literalExpression>
-                    </semantic:contextEntry>
-                    <semantic:contextEntry id="_34fb5087-0b0e-4fec-90ac-466522b54656">
-                        <semantic:variable name="CurrentValue" id="_d7271752-97c3-41c4-b721-5c55f37e5b62" typeRef="number"/>
-                        <semantic:literalExpression id="_79480a22-e321-4d2e-8a75-4aa472686d1c" triso:descriptionVisible="false">
-                            <semantic:text>NetShares*Price</semantic:text>
-                        </semantic:literalExpression>
-                    </semantic:contextEntry>
-                    <semantic:contextEntry id="_35846439-6064-4069-b956-0f926277d7a7">
-                        <semantic:variable name="GainLoss" id="_6033ca02-967b-4f91-9e9d-96adb34a32b8" typeRef="number"/>
-                        <semantic:literalExpression id="_d965cc7e-155c-45dd-8ef8-f46042557194" triso:descriptionVisible="false">
-                            <semantic:text>0</semantic:text>
-                        </semantic:literalExpression>
-                    </semantic:contextEntry>
-                </semantic:context>
-            </semantic:contextEntry>
-            <semantic:contextEntry id="_603974c3-7e19-4ba7-87da-87ba7e7ad071">
-                <semantic:literalExpression id="_d04212a3-920b-4384-85c7-189419d93b06">
-                    <semantic:text>if Previous Portfolio[Ticker=Trade.Ticker]=[] then Trade Portfolio Record else null</semantic:text>
-                </semantic:literalExpression>
-            </semantic:contextEntry>
-        </semantic:context>
-    </semantic:decision>
-    <semantic:businessKnowledgeModel id="_e180eaec-6e1e-450c-a6ff-31457b2f4bf4" name="Updated record" triso:readOnly="false">
-        <semantic:variable name="Updated record" id="_c8aafea0-e56a-4378-8ee6-c82ee44c24d8" typeRef="tPortfolio"/>
-        <semantic:encapsulatedLogic id="_a0b408a7-3c85-4598-b69e-026a9178c549" kind="FEEL" triso:descriptionVisible="false" typeRef="tPortfolio" triso:expressionId="_af7ffa44-4d71-4b32-a88e-8d7b7189a66c">
-            <semantic:formalParameter name="prevRecord" typeRef="tPortfolio" id="_692913f0-d07f-448d-9041-12f0f0cc0e4d"/>
-            <semantic:formalParameter name="trade" typeRef="tTrade" id="_2a170531-f395-4266-8ac0-8b64660057c6"/>
-            <semantic:context id="_65b71127-bb73-45bb-a5bc-2e2d120b329a" typeRef="tPortfolio">
-                <semantic:contextEntry id="_97b8accf-67c4-4923-bc3d-6b091acd0b4a">
-                    <semantic:variable name="ID" id="_d28d6f3a-d1b5-4a23-9a80-6c6bbd57496b" typeRef="number"/>
-                    <semantic:literalExpression id="_80c58c1b-2bde-4b32-9456-d2216f7fc06d" triso:descriptionVisible="false">
-                        <semantic:text>prevRecord.ID</semantic:text>
-                    </semantic:literalExpression>
-                </semantic:contextEntry>
-                <semantic:contextEntry id="_d2eb195a-bab0-47aa-8b31-51ff18c931dc">
-                    <semantic:variable name="Account" id="_330732fe-749c-4965-9452-09a9d9b42b4f" typeRef="string"/>
-                    <semantic:literalExpression id="_71bd064e-02cb-41ba-b855-0b594c523dd3" triso:descriptionVisible="false">
-                        <semantic:text>prevRecord.Account</semantic:text>
-                    </semantic:literalExpression>
-                </semantic:contextEntry>
-                <semantic:contextEntry id="_bd07396e-46c4-46c1-a8fd-6c1ddff213e4">
-                    <semantic:variable name="Ticker" id="_4c61ef8c-cf50-4303-bf4e-2a86dffe0020" typeRef="string"/>
-                    <semantic:literalExpression id="_aa76ae27-cd98-4154-b8b4-a2972c7b857b" triso:descriptionVisible="false">
-                        <semantic:text>prevRecord.Ticker</semantic:text>
-                    </semantic:literalExpression>
-                </semantic:contextEntry>
-                <semantic:contextEntry id="_d42feddd-a813-4acd-9747-ac4213817219">
-                    <semantic:variable name="NetShares" id="_3926b1b9-d55b-482f-8f75-51a79363d7aa" typeRef="number"/>
-                    <semantic:literalExpression id="_108f3d74-7e3b-48a5-8b8d-6f219d2a85c3" triso:descriptionVisible="false">
-                        <semantic:text>if prevRecord.Ticker="Cash" then prevRecord.NetShares - trade.Value else prevRecord.NetShares + trade.Shares</semantic:text>
-                    </semantic:literalExpression>
-                </semantic:contextEntry>
-                <semantic:contextEntry id="_bf03566b-5fea-4082-8f68-2c00ad5f2cbf">
-                    <semantic:variable name="Price" id="_de2b0932-c84a-47c1-8c17-05792ced5089" typeRef="number"/>
-                    <semantic:literalExpression id="_37c923fd-dcf5-4b9a-b38d-6d5af7d2ab0e" triso:descriptionVisible="false">
-                        <semantic:text>if prevRecord.Ticker=trade.Ticker then trade.Price else 1</semantic:text>
-                    </semantic:literalExpression>
-                </semantic:contextEntry>
-                <semantic:contextEntry id="_897e1e55-4daa-4e51-899a-dfb9854bd7a7">
-                    <semantic:variable name="Timestamp" id="_32e62c6f-5019-403a-9aac-40d3343bdc82" typeRef="dateTime"/>
-                    <semantic:literalExpression id="_8804d464-6a36-4163-bedf-87672329b17f" triso:descriptionVisible="false">
-                        <semantic:text>now()</semantic:text>
-                    </semantic:literalExpression>
-                </semantic:contextEntry>
-                <semantic:contextEntry id="_450060a2-b249-4b2a-b3e1-28c3b7e2bd11">
-                    <semantic:variable name="CurrentValue" id="_790cd158-8ef4-476f-9aba-972d902d9747" typeRef="number"/>
-                    <semantic:literalExpression id="_983afbed-99d0-442c-b20e-471f2de608dc" triso:descriptionVisible="false">
-                        <semantic:text>NetShares*Price</semantic:text>
-                    </semantic:literalExpression>
-                </semantic:contextEntry>
-                <semantic:contextEntry id="_734726c0-e2c3-407b-bf5d-af21c04164bf">
-                    <semantic:variable name="GainLoss" id="_a2601ce7-7e60-4e57-ad23-d8b22f67903b" typeRef="number"/>
-                    <semantic:literalExpression id="_fa8d78e2-f68b-4d3e-8fdd-ce0e9880f241" triso:descriptionVisible="false">
-                        <semantic:text>if 
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="http://www.trisotech.com/definitions/_7a711558-a2a7-4659-ade3-6f29c7fa750c" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:drools="http://www.drools.org/kie/dmn/1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rss="http://purl.org/rss/2.0/" xmlns:openapi="https://openapis.org/omg/extension/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" id="_7a711558-a2a7-4659-ade3-6f29c7fa750c" name="7.1 Update Table Records  - KIE" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="http://www.trisotech.com/definitions/_7a711558-a2a7-4659-ade3-6f29c7fa750c">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_8CE175D6-FD22-4B8A-A102-4A19BC992BDC" name="tTrade" isCollection="false">
+    <dmn:itemComponent id="_dde77a34-36ba-43dd-8e75-f671bc1a6dc6" name="ID" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_5037a6bd-d14c-4463-99e0-3a8d2b48b412" name="Timestamp" isCollection="false">
+      <dmn:typeRef>dateTime</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_0385af5a-b9ba-4d92-bfd0-5cfe16d90251" name="Account" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_8bb1f4b1-572f-4b28-a9f0-8a32fffebe4d" name="Ticker" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_a7530575-a42a-4500-812d-6dea44f02147" name="TradeType" isCollection="false">
+      <dmn:typeRef>tTradeType</dmn:typeRef>
+      <dmn:allowedValues id="_5B5498E9-4FE8-4E21-A626-7F93FE0267DC">
+        <dmn:text>"Init","Buy","Sell"</dmn:text>
+      </dmn:allowedValues>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_c4eba333-afc4-46ed-8356-f02c2a74facf" name="Shares" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_10fb8af0-92a0-441b-ab67-64db23d5665f" name="Price" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_5bbf97ef-0832-4dd7-b376-6d016d335de1" name="Value" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_81AC1BD5-725A-44F1-A035-7AE8EE5BC190" name="tPortfolio" isCollection="false">
+    <dmn:itemComponent id="_b9755655-eced-49ea-9eed-cceded8dc2d2" name="ID" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_0786522e-ea03-4e74-aed0-f15e59f2db31" name="Account" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_f441770e-a64a-43a5-b8a4-8b9db9396700" name="Ticker" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_6595f3eb-a565-4792-ac47-ab68281a1082" name="Price" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_2ed9bc6c-3757-45f3-b936-8165164b8fb7" name="Timestamp" isCollection="false">
+      <dmn:typeRef>dateTime</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_41596683-97e1-4fc2-a4d8-627a0fbad551" name="NetShares" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_7785449e-4ed0-4400-a5e0-99dbe42447b1" name="CurrentValue" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_cb7fdea1-0917-41ab-9171-58ef6b6e670d" name="GainLoss" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_DEBF4A19-1549-47A4-8F69-A6DD583CBAB2" name="tTradeType" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+    <dmn:allowedValues id="_F86CF58C-3E13-4FAA-8FF5-32B643FA8EAF">
+      <dmn:text>"Buy","Sell","Init"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_168F9169-6B4D-4709-A82B-1B7A4B48E81E" name="CollectionOftTrade" isCollection="true">
+    <dmn:typeRef>tTrade</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_40106EE8-DFA3-4778-BC3B-4B4BBDFF0CDB" name="CollectionOftPortfolio" isCollection="true">
+    <dmn:typeRef>tPortfolio</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:decision id="_686ad1c6-14d5-4a07-8b1a-f60fb23670fe" name="Updated Portfolio Table">
+    <dmn:extensionElements/>
+    <dmn:variable id="_2d4117f6-d0a2-4bc4-8cc4-4d437676aecd" name="Updated Portfolio Table" typeRef="CollectionOftPortfolio"/>
+    <dmn:informationRequirement id="_cb82140f-cbc4-40c4-b27d-22192b564d9b">
+      <dmn:requiredInput href="#_bd6ee718-96e2-4c13-b05a-3326501d3e2c"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_359b8910-c1cb-4f57-9b16-2425076168a8">
+      <dmn:requiredInput href="#_48b6ebc3-9345-4f01-9aa4-4a17a266f9d4"/>
+    </dmn:informationRequirement>
+    <dmn:knowledgeRequirement id="_bcd30cb7-e10f-4c1a-b518-69f7b22d573a">
+      <dmn:requiredKnowledge href="#_e180eaec-6e1e-450c-a6ff-31457b2f4bf4"/>
+    </dmn:knowledgeRequirement>
+    <dmn:literalExpression id="_68a7e402-90c9-4043-be70-c85ea768e709" typeRef="CollectionOftPortfolio">
+      <dmn:text>if Previous Portfolio[Ticker=Trade.Ticker]!=[] then for x in ["Cash", Trade.Ticker] return Updated record(Previous Portfolio[Ticker=x][1], Trade) else [Updated record(Previous Portfolio[Ticker="Cash"][1],Trade)]</dmn:text>
+    </dmn:literalExpression>
+  </dmn:decision>
+  <dmn:businessKnowledgeModel id="_e180eaec-6e1e-450c-a6ff-31457b2f4bf4" name="Updated record">
+    <dmn:extensionElements/>
+    <dmn:variable id="_c8aafea0-e56a-4378-8ee6-c82ee44c24d8" name="Updated record" typeRef="tPortfolio"/>
+    <dmn:encapsulatedLogic id="_a0b408a7-3c85-4598-b69e-026a9178c549" typeRef="tPortfolio" kind="FEEL">
+      <dmn:formalParameter id="_692913f0-d07f-448d-9041-12f0f0cc0e4d" name="prevRecord" typeRef="tPortfolio"/>
+      <dmn:formalParameter id="_2a170531-f395-4266-8ac0-8b64660057c6" name="trade" typeRef="tTrade"/>
+      <dmn:context id="_65b71127-bb73-45bb-a5bc-2e2d120b329a" typeRef="tPortfolio">
+        <dmn:contextEntry>
+          <dmn:variable id="_d28d6f3a-d1b5-4a23-9a80-6c6bbd57496b" name="ID" typeRef="number"/>
+          <dmn:literalExpression id="_80c58c1b-2bde-4b32-9456-d2216f7fc06d">
+            <dmn:text>prevRecord.ID</dmn:text>
+          </dmn:literalExpression>
+        </dmn:contextEntry>
+        <dmn:contextEntry>
+          <dmn:variable id="_330732fe-749c-4965-9452-09a9d9b42b4f" name="Account" typeRef="string"/>
+          <dmn:literalExpression id="_71bd064e-02cb-41ba-b855-0b594c523dd3">
+            <dmn:text>prevRecord.Account</dmn:text>
+          </dmn:literalExpression>
+        </dmn:contextEntry>
+        <dmn:contextEntry>
+          <dmn:variable id="_4c61ef8c-cf50-4303-bf4e-2a86dffe0020" name="Ticker" typeRef="string"/>
+          <dmn:literalExpression id="_aa76ae27-cd98-4154-b8b4-a2972c7b857b">
+            <dmn:text>prevRecord.Ticker</dmn:text>
+          </dmn:literalExpression>
+        </dmn:contextEntry>
+        <dmn:contextEntry>
+          <dmn:variable id="_3926b1b9-d55b-482f-8f75-51a79363d7aa" name="NetShares" typeRef="number"/>
+          <dmn:literalExpression id="_108f3d74-7e3b-48a5-8b8d-6f219d2a85c3">
+            <dmn:text>if prevRecord.Ticker="Cash" then prevRecord.NetShares - trade.Value else prevRecord.NetShares + trade.Shares</dmn:text>
+          </dmn:literalExpression>
+        </dmn:contextEntry>
+        <dmn:contextEntry>
+          <dmn:variable id="_de2b0932-c84a-47c1-8c17-05792ced5089" name="Price" typeRef="number"/>
+          <dmn:literalExpression id="_37c923fd-dcf5-4b9a-b38d-6d5af7d2ab0e">
+            <dmn:text>if prevRecord.Ticker=trade.Ticker then trade.Price else 1</dmn:text>
+          </dmn:literalExpression>
+        </dmn:contextEntry>
+        <dmn:contextEntry>
+          <dmn:variable id="_32e62c6f-5019-403a-9aac-40d3343bdc82" name="Timestamp" typeRef="dateTime"/>
+          <dmn:literalExpression id="_8804d464-6a36-4163-bedf-87672329b17f">
+            <dmn:text>now()</dmn:text>
+          </dmn:literalExpression>
+        </dmn:contextEntry>
+        <dmn:contextEntry>
+          <dmn:variable id="_790cd158-8ef4-476f-9aba-972d902d9747" name="CurrentValue" typeRef="number"/>
+          <dmn:literalExpression id="_983afbed-99d0-442c-b20e-471f2de608dc">
+            <dmn:text>NetShares*Price</dmn:text>
+          </dmn:literalExpression>
+        </dmn:contextEntry>
+        <dmn:contextEntry>
+          <dmn:variable id="_a2601ce7-7e60-4e57-ad23-d8b22f67903b" name="GainLoss" typeRef="number"/>
+          <dmn:literalExpression id="_fa8d78e2-f68b-4d3e-8fdd-ce0e9880f241">
+            <dmn:text>if 
     prevRecord.Ticker="Cash" then 0 
 else    
-    prevRecord.GainLoss + prevRecord.NetShares*Price - prevRecord.CurrentValue</semantic:text>
-                    </semantic:literalExpression>
-                </semantic:contextEntry>
-            </semantic:context>
-        </semantic:encapsulatedLogic>
-    </semantic:businessKnowledgeModel>
-    <semantic:inputData id="_bd6ee718-96e2-4c13-b05a-3326501d3e2c" name="Trade" triso:readOnly="false">
-        <semantic:variable name="Trade" id="_38349eca-d112-4226-977a-425e3bf93ba3" typeRef="tTrade"/>
-    </semantic:inputData>
-    <semantic:inputData id="_48b6ebc3-9345-4f01-9aa4-4a17a266f9d4" name="Previous Portfolio" triso:readOnly="false">
-        <semantic:variable name="Previous Portfolio" id="_b324ee40-dbf2-40ba-ade9-99f4e0943f34" typeRef="CollectionOftPortfolio"/>
-    </semantic:inputData>
-    <semantic:decisionService id="_a94fd7b6-bcdc-4a67-82b1-1d25aa2b404e" name="Update Table Record" triso:readOnly="false">
-        <semantic:variable name="Update Table Record" id="_fd2a3d96-0e12-4807-b124-3ec02c03dcc9" typeRef="Any"/>
-        <semantic:outputDecision href="#_03f95d0c-ea5b-43fb-b743-cd9e9581be6b"/>
-        <semantic:outputDecision href="#_686ad1c6-14d5-4a07-8b1a-f60fb23670fe"/>
-        <semantic:inputData href="#_bd6ee718-96e2-4c13-b05a-3326501d3e2c"/>
-        <semantic:inputData href="#_48b6ebc3-9345-4f01-9aa4-4a17a266f9d4"/>
-    </semantic:decisionService>
-    <dmndi:DMNDI>
-        <dmndi:DMNDiagram id="_fa123803-1b02-4239-bb54-aa93b638a22c" triso:modelElementRef="_728ef72d-0c5f-4972-a493-ad77c3837aaf" name="Update Portfolio">
-            <di:extension/>
-            <dmndi:Size height="1050" width="1485"/>
-            <dmndi:DMNShape id="_a300d707-f0c2-4894-a98d-fb35c5093536" dmnElementRef="_686ad1c6-14d5-4a07-8b1a-f60fb23670fe">
-                <dc:Bounds x="374.5" y="210" width="153" height="60"/>
-                <dmndi:DMNLabel sharedStyle="LS_7a711558-a2a7-4659-ade3-6f29c7fa750c_0" trisodmn:defaultBounds="true"/>
-            </dmndi:DMNShape>
-            <dmndi:DMNShape id="_a22dee3d-ed9b-481c-9278-5deb7a2f1088" dmnElementRef="_e180eaec-6e1e-450c-a6ff-31457b2f4bf4">
-                <dc:Bounds x="642.5" y="210" width="153" height="60"/>
-                <dmndi:DMNLabel sharedStyle="LS_7a711558-a2a7-4659-ade3-6f29c7fa750c_0" trisodmn:defaultBounds="true"/>
-            </dmndi:DMNShape>
-            <dmndi:DMNShape id="_ccf507f4-77a7-483f-ad71-7472346742f8" dmnElementRef="_03f95d0c-ea5b-43fb-b743-cd9e9581be6b">
-                <dc:Bounds x="560.5" y="313" width="153" height="60"/>
-                <dmndi:DMNLabel sharedStyle="LS_7a711558-a2a7-4659-ade3-6f29c7fa750c_0" trisodmn:defaultBounds="true"/>
-            </dmndi:DMNShape>
-            <dmndi:DMNShape id="_83d808b4-e04a-47fc-a096-ba94a5038c8c" dmnElementRef="_bd6ee718-96e2-4c13-b05a-3326501d3e2c">
-                <dc:Bounds x="374.5" y="474.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
-                <dmndi:DMNLabel sharedStyle="LS_7a711558-a2a7-4659-ade3-6f29c7fa750c_0" trisodmn:defaultBounds="true"/>
-            </dmndi:DMNShape>
-            <dmndi:DMNShape id="_97528186-621a-4dcd-b139-c2761273fcf3" dmnElementRef="_48b6ebc3-9345-4f01-9aa4-4a17a266f9d4">
-                <dc:Bounds x="569.2588291168213" y="474.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
-                <dmndi:DMNLabel sharedStyle="LS_7a711558-a2a7-4659-ade3-6f29c7fa750c_0" trisodmn:defaultBounds="true"/>
-            </dmndi:DMNShape>
-            <dmndi:DMNEdge id="_6a221b44-42bb-4767-a924-6fae09cfa036" dmnElementRef="_bcd30cb7-e10f-4c1a-b518-69f7b22d573a" sourceElement="_a22dee3d-ed9b-481c-9278-5deb7a2f1088" targetElement="_a300d707-f0c2-4894-a98d-fb35c5093536">
-                <di:waypoint x="643.5" y="240"/>
-                <di:waypoint x="527.5" y="240"/>
-                <dmndi:DMNLabel sharedStyle="LS_7a711558-a2a7-4659-ade3-6f29c7fa750c_0"/>
-            </dmndi:DMNEdge>
-            <dmndi:DMNEdge id="_439466cb-aefb-4f4f-b667-284d260c55fd" dmnElementRef="_3fbc25b7-62d5-4095-a65f-c2e2c87fa387" sourceElement="_83d808b4-e04a-47fc-a096-ba94a5038c8c" targetElement="_ccf507f4-77a7-483f-ad71-7472346742f8">
-                <di:waypoint x="462.2379722595215" y="474.99999618530273"/>
-                <di:waypoint x="617" y="373"/>
-                <dmndi:DMNLabel sharedStyle="LS_7a711558-a2a7-4659-ade3-6f29c7fa750c_0"/>
-            </dmndi:DMNEdge>
-            <dmndi:DMNEdge id="_4bf9aaeb-dcae-4eb2-92f8-bf836a7ae79c" dmnElementRef="_84efbcbe-5321-42ff-ad6e-a78c176ca2a9" sourceElement="_97528186-621a-4dcd-b139-c2761273fcf3" targetElement="_ccf507f4-77a7-483f-ad71-7472346742f8">
-                <di:waypoint x="636.9968013763428" y="474.99999618530273"/>
-                <di:waypoint x="637" y="373"/>
-                <dmndi:DMNLabel sharedStyle="LS_7a711558-a2a7-4659-ade3-6f29c7fa750c_0"/>
-            </dmndi:DMNEdge>
-            <dmndi:DMNEdge id="_f96b995f-af21-49f9-bf59-9681d919de4b" dmnElementRef="_cb82140f-cbc4-40c4-b27d-22192b564d9b" sourceElement="_83d808b4-e04a-47fc-a096-ba94a5038c8c" targetElement="_a300d707-f0c2-4894-a98d-fb35c5093536">
-                <di:waypoint x="422.2379722595215" y="474.99999618530273"/>
-                <di:waypoint x="441" y="270"/>
-                <dmndi:DMNLabel sharedStyle="LS_7a711558-a2a7-4659-ade3-6f29c7fa750c_0"/>
-            </dmndi:DMNEdge>
-            <dmndi:DMNEdge id="_856444b7-f252-45b0-a278-ac1ac46ab6f1" dmnElementRef="_359b8910-c1cb-4f57-9b16-2425076168a8" sourceElement="_97528186-621a-4dcd-b139-c2761273fcf3" targetElement="_a300d707-f0c2-4894-a98d-fb35c5093536">
-                <di:waypoint x="606.9968013763428" y="474.99999618530273"/>
-                <di:waypoint x="451" y="270"/>
-                <dmndi:DMNLabel sharedStyle="LS_7a711558-a2a7-4659-ade3-6f29c7fa750c_0"/>
-            </dmndi:DMNEdge>
-        </dmndi:DMNDiagram>
-        <dmndi:DMNStyle id="LS_7a711558-a2a7-4659-ade3-6f29c7fa750c_0" fontFamily="arial,helvetica,sans-serif" fontSize="11" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false"/>
-    </dmndi:DMNDI>
-</semantic:definitions>
+    prevRecord.GainLoss + prevRecord.NetShares*Price - prevRecord.CurrentValue</dmn:text>
+          </dmn:literalExpression>
+        </dmn:contextEntry>
+      </dmn:context>
+    </dmn:encapsulatedLogic>
+  </dmn:businessKnowledgeModel>
+  <dmn:decision id="_03f95d0c-ea5b-43fb-b743-cd9e9581be6b" name="New Portfolio Record">
+    <dmn:extensionElements/>
+    <dmn:variable id="_27e4d886-7aff-42d2-a40a-8367c59fe4ef" name="New Portfolio Record" typeRef="tPortfolio"/>
+    <dmn:informationRequirement id="_3fbc25b7-62d5-4095-a65f-c2e2c87fa387">
+      <dmn:requiredInput href="#_bd6ee718-96e2-4c13-b05a-3326501d3e2c"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_84efbcbe-5321-42ff-ad6e-a78c176ca2a9">
+      <dmn:requiredInput href="#_48b6ebc3-9345-4f01-9aa4-4a17a266f9d4"/>
+    </dmn:informationRequirement>
+    <dmn:context id="_5de23787-9815-4f26-a0a4-ea85a07c485f" typeRef="tPortfolio">
+      <dmn:contextEntry>
+        <dmn:variable id="_5f159fda-2603-43b2-97c4-196b5da7a9c3" name="Trade Portfolio Record" typeRef="tPortfolio"/>
+        <dmn:context id="_6965fc55-2e55-47ad-a8ce-7d792df1762b">
+          <dmn:contextEntry>
+            <dmn:variable id="_700ebaf5-56f7-4c4d-99a9-f0c023605d68" name="ID" typeRef="number"/>
+            <dmn:literalExpression id="_820f5074-d7ae-4c86-a975-0ac6db413de9">
+              <dmn:text>0</dmn:text>
+            </dmn:literalExpression>
+          </dmn:contextEntry>
+          <dmn:contextEntry>
+            <dmn:variable id="_4ca83fdc-543f-4676-90c0-3bd2f61d4766" name="Account" typeRef="string"/>
+            <dmn:literalExpression id="_844c4bc5-f77d-4d78-8461-03d0b7857ca5">
+              <dmn:text>Trade.Account</dmn:text>
+            </dmn:literalExpression>
+          </dmn:contextEntry>
+          <dmn:contextEntry>
+            <dmn:variable id="_ccc2ba78-0af5-4af1-89d2-7db090571be7" name="Ticker" typeRef="string"/>
+            <dmn:literalExpression id="_056ef47a-9c9d-4d9f-b679-92ed2127bd8e">
+              <dmn:text>Trade.Ticker</dmn:text>
+            </dmn:literalExpression>
+          </dmn:contextEntry>
+          <dmn:contextEntry>
+            <dmn:variable id="_37f0c81e-bc3b-44ec-a855-3c7c40712b2a" name="Price" typeRef="number"/>
+            <dmn:literalExpression id="_5d089586-a484-4db7-9a9e-62771152f785">
+              <dmn:text>Trade.Price</dmn:text>
+            </dmn:literalExpression>
+          </dmn:contextEntry>
+          <dmn:contextEntry>
+            <dmn:variable id="_6eb8c6b0-b44f-4fa6-8044-e6ff0bac595e" name="Timestamp" typeRef="dateTime"/>
+            <dmn:literalExpression id="_8b3b19ae-682c-4de4-a6c1-c74cd022a8a5">
+              <dmn:text>now()</dmn:text>
+            </dmn:literalExpression>
+          </dmn:contextEntry>
+          <dmn:contextEntry>
+            <dmn:variable id="_a573c098-8978-4f7a-b2cc-84a8816d4ca3" name="NetShares" typeRef="number"/>
+            <dmn:literalExpression id="_ca4db4bf-3161-4bb4-9580-e511ae78bb41">
+              <dmn:text>Trade.Shares</dmn:text>
+            </dmn:literalExpression>
+          </dmn:contextEntry>
+          <dmn:contextEntry>
+            <dmn:variable id="_d7271752-97c3-41c4-b721-5c55f37e5b62" name="CurrentValue" typeRef="number"/>
+            <dmn:literalExpression id="_79480a22-e321-4d2e-8a75-4aa472686d1c">
+              <dmn:text>NetShares*Price</dmn:text>
+            </dmn:literalExpression>
+          </dmn:contextEntry>
+          <dmn:contextEntry>
+            <dmn:variable id="_6033ca02-967b-4f91-9e9d-96adb34a32b8" name="GainLoss" typeRef="number"/>
+            <dmn:literalExpression id="_d965cc7e-155c-45dd-8ef8-f46042557194">
+              <dmn:text>0</dmn:text>
+            </dmn:literalExpression>
+          </dmn:contextEntry>
+        </dmn:context>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_d04212a3-920b-4384-85c7-189419d93b06">
+          <dmn:text>if Previous Portfolio[Ticker=Trade.Ticker]=[] then Trade Portfolio Record else null</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
+  <dmn:inputData id="_bd6ee718-96e2-4c13-b05a-3326501d3e2c" name="Trade">
+    <dmn:extensionElements/>
+    <dmn:variable id="_38349eca-d112-4226-977a-425e3bf93ba3" name="Trade" typeRef="tTrade"/>
+  </dmn:inputData>
+  <dmn:inputData id="_48b6ebc3-9345-4f01-9aa4-4a17a266f9d4" name="Previous Portfolio">
+    <dmn:extensionElements/>
+    <dmn:variable id="_b324ee40-dbf2-40ba-ade9-99f4e0943f34" name="Previous Portfolio" typeRef="CollectionOftPortfolio"/>
+  </dmn:inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_fa123803-1b02-4239-bb54-aa93b638a22c" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension xmlns:kie="http://www.drools.org/kie/dmn/1.2">
+          <kie:ComponentWidths dmnElementRef="_68a7e402-90c9-4043-be70-c85ea768e709"/>
+          <kie:ComponentWidths dmnElementRef="_65b71127-bb73-45bb-a5bc-2e2d120b329a"/>
+          <kie:ComponentWidths dmnElementRef="_80c58c1b-2bde-4b32-9456-d2216f7fc06d"/>
+          <kie:ComponentWidths dmnElementRef="_71bd064e-02cb-41ba-b855-0b594c523dd3"/>
+          <kie:ComponentWidths dmnElementRef="_aa76ae27-cd98-4154-b8b4-a2972c7b857b"/>
+          <kie:ComponentWidths dmnElementRef="_108f3d74-7e3b-48a5-8b8d-6f219d2a85c3"/>
+          <kie:ComponentWidths dmnElementRef="_37c923fd-dcf5-4b9a-b38d-6d5af7d2ab0e"/>
+          <kie:ComponentWidths dmnElementRef="_8804d464-6a36-4163-bedf-87672329b17f"/>
+          <kie:ComponentWidths dmnElementRef="_983afbed-99d0-442c-b20e-471f2de608dc"/>
+          <kie:ComponentWidths dmnElementRef="_fa8d78e2-f68b-4d3e-8fdd-ce0e9880f241"/>
+          <kie:ComponentWidths dmnElementRef="_a0b408a7-3c85-4598-b69e-026a9178c549"/>
+          <kie:ComponentWidths dmnElementRef="_5de23787-9815-4f26-a0a4-ea85a07c485f"/>
+          <kie:ComponentWidths dmnElementRef="_6965fc55-2e55-47ad-a8ce-7d792df1762b"/>
+          <kie:ComponentWidths dmnElementRef="_820f5074-d7ae-4c86-a975-0ac6db413de9"/>
+          <kie:ComponentWidths dmnElementRef="_844c4bc5-f77d-4d78-8461-03d0b7857ca5"/>
+          <kie:ComponentWidths dmnElementRef="_056ef47a-9c9d-4d9f-b679-92ed2127bd8e"/>
+          <kie:ComponentWidths dmnElementRef="_5d089586-a484-4db7-9a9e-62771152f785"/>
+          <kie:ComponentWidths dmnElementRef="_8b3b19ae-682c-4de4-a6c1-c74cd022a8a5"/>
+          <kie:ComponentWidths dmnElementRef="_ca4db4bf-3161-4bb4-9580-e511ae78bb41"/>
+          <kie:ComponentWidths dmnElementRef="_79480a22-e321-4d2e-8a75-4aa472686d1c"/>
+          <kie:ComponentWidths dmnElementRef="_d965cc7e-155c-45dd-8ef8-f46042557194"/>
+          <kie:ComponentWidths dmnElementRef="_d04212a3-920b-4384-85c7-189419d93b06"/>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_686ad1c6-14d5-4a07-8b1a-f60fb23670fe" dmnElementRef="_686ad1c6-14d5-4a07-8b1a-f60fb23670fe" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="341.5" y="163" width="153" height="60"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_e180eaec-6e1e-450c-a6ff-31457b2f4bf4" dmnElementRef="_e180eaec-6e1e-450c-a6ff-31457b2f4bf4" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="690.5" y="184" width="153" height="60"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_03f95d0c-ea5b-43fb-b743-cd9e9581be6b" dmnElementRef="_03f95d0c-ea5b-43fb-b743-cd9e9581be6b" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="560.5" y="313" width="153" height="60"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_bd6ee718-96e2-4c13-b05a-3326501d3e2c" dmnElementRef="_bd6ee718-96e2-4c13-b05a-3326501d3e2c" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="374.5" y="474.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_48b6ebc3-9345-4f01-9aa4-4a17a266f9d4" dmnElementRef="_48b6ebc3-9345-4f01-9aa4-4a17a266f9d4" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="569.2588291168213" y="474.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_cb82140f-cbc4-40c4-b27d-22192b564d9b" dmnElementRef="_cb82140f-cbc4-40c4-b27d-22192b564d9b">
+        <di:waypoint x="422.2379722595215" y="474.99999618530273"/>
+        <di:waypoint x="408" y="223"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_359b8910-c1cb-4f57-9b16-2425076168a8" dmnElementRef="_359b8910-c1cb-4f57-9b16-2425076168a8">
+        <di:waypoint x="606.9968013763428" y="474.99999618530273"/>
+        <di:waypoint x="418" y="223"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_bcd30cb7-e10f-4c1a-b518-69f7b22d573a" dmnElementRef="_bcd30cb7-e10f-4c1a-b518-69f7b22d573a">
+        <di:waypoint x="691.5" y="214"/>
+        <di:waypoint x="494.5" y="193"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_3fbc25b7-62d5-4095-a65f-c2e2c87fa387" dmnElementRef="_3fbc25b7-62d5-4095-a65f-c2e2c87fa387">
+        <di:waypoint x="462.2379722595215" y="474.99999618530273"/>
+        <di:waypoint x="617" y="373"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_84efbcbe-5321-42ff-ad6e-a78c176ca2a9" dmnElementRef="_84efbcbe-5321-42ff-ad6e-a78c176ca2a9">
+        <di:waypoint x="636.9968013763428" y="474.99999618530273"/>
+        <di:waypoint x="637" y="373"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
