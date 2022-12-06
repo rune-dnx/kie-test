@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<semantic:definitions xmlns:semantic="https://www.omg.org/spec/DMN/20191111/MODEL/"  xmlns:triso="http://www.trisotech.com/2015/triso/modeling"  xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/"  xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/"  xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"  xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn"  xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/"  xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase"  xmlns:drools="http://www.drools.org/kie/dmn/1.1"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:rss="http://purl.org/rss/2.0/"  xmlns:openapi="https://openapis.org/omg/extension/1.0"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/"   xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0"  xmlns="http://www.trisotech.com/definitions/_5cad6605-a8a4-4065-a98e-fbeae53dedc7" id="_5cad6605-a8a4-4065-a98e-fbeae53dedc7" name="Vacation Approval" namespace="http://www.trisotech.com/definitions/_5cad6605-a8a4-4065-a98e-fbeae53dedc7" exporter="Decision Modeler" exporterVersion="8.3.4" xml:lang="en" triso:logoChoice="Default">
+    <semantic:extensionElements>
+        <tc:testCases>
+            <tc:testCase id="_5fc3f6f3-e7da-4b14-ba8e-bf4f6ef75579" name="Test case 1">
+                <tc:inputNode name="Vacation Request">
+                    <tc:component name="name">
+                        <tc:value xsi:type="string">Rune</tc:value>
+                    </tc:component>
+                    <tc:component name="employeeId">
+                        <tc:value xsi:type="double">1</tc:value>
+                    </tc:component>
+                    <tc:component name="email">
+                        <tc:value xsi:type="string">rune@dnx.no</tc:value>
+                    </tc:component>
+                    <tc:component name="vacation start">
+                        <tc:value xsi:type="date">2023-05-01</tc:value>
+                    </tc:component>
+                    <tc:component name="vacation return">
+                        <tc:value xsi:type="date">2023-05-19</tc:value>
+                    </tc:component>
+                    <tc:component name="special reason">
+                        <tc:value xsi:nil="true"/>
+                    </tc:component>
+                </tc:inputNode>
+                <tc:inputNode name="Employee Record">
+                    <tc:component name="EmployeeName">
+                        <tc:value xsi:type="string">Rune</tc:value>
+                    </tc:component>
+                    <tc:component name="Employeeid">
+                        <tc:value xsi:type="double">1</tc:value>
+                    </tc:component>
+                    <tc:component name="EmployeeEmail">
+                        <tc:value xsi:type="string">rune@dnx.no</tc:value>
+                    </tc:component>
+                    <tc:component name="ManagerName">
+                        <tc:value xsi:type="string">Bruce</tc:value>
+                    </tc:component>
+                    <tc:component name="ManagerEmail">
+                        <tc:value xsi:type="string">bruc@google.com</tc:value>
+                    </tc:component>
+                    <tc:component name="AvailableDays">
+                        <tc:value xsi:type="double">25</tc:value>
+                    </tc:component>
+                </tc:inputNode>
+                <tc:resultNode id="_ac68c9cb-8cd2-4db8-b859-16c19db6e358" name="Vacation Approval">
+                    <tc:expected>
+                        <tc:component name="Reason">
+                            <tc:value xsi:type="xsd:string">Supert</tc:value>
+                        </tc:component>
+                        <tc:component name="Status"/>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+        </tc:testCases>
+    </semantic:extensionElements>
+    <semantic:itemDefinition name="tVacationRequest" label="tVacationRequest">
+        <semantic:itemComponent id="_5172fa7f-ec3f-464e-b944-821a011ec216" name="name">
+            <semantic:typeRef>string</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_9a50ad5a-59ff-4c7f-9c37-6b770f958ace" name="employeeId">
+            <semantic:typeRef>number</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_ba9cd592-95c7-4499-9003-b4aeda0b335e" name="email">
+            <semantic:typeRef>string</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_5da5ae38-1d93-40c3-8f20-860c86050f2f" name="vacation start">
+            <semantic:typeRef>date</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_34e89a1f-61e6-4d11-8236-4a1b4298c527" name="vacation return">
+            <semantic:typeRef>date</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_f1b18076-c7ed-4524-a431-de542c44ea5a" name="special reason">
+            <semantic:typeRef>string</semantic:typeRef>
+        </semantic:itemComponent>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="tEmployeeVacationData" label="tEmployeeVacationData">
+        <semantic:itemComponent id="_b3e3ed15-ce1c-476e-9bda-d4a5f11698da" name="EmployeeName">
+            <semantic:typeRef>string</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_cf8d63d5-72b1-4a64-bc3d-ac17bd79c5e6" name="Employeeid">
+            <semantic:typeRef>number</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_e995913e-e24f-46d3-af6d-00927c60a27c" name="EmployeeEmail">
+            <semantic:typeRef>string</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_a4035f6c-1b1c-4ccd-97c1-4b98bda4a2ce" name="ManagerName">
+            <semantic:typeRef>string</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_5f380e4e-0784-4deb-b7ad-f9bd9205624a" name="ManagerEmail">
+            <semantic:typeRef>string</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_31839119-85b6-48fd-b895-03f47af5981c" name="AvailableDays">
+            <semantic:typeRef>number</semantic:typeRef>
+        </semantic:itemComponent>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="tVacationApproval" label="tVacationApproval">
+        <semantic:itemComponent id="_47a4e4fb-2a1e-458d-9694-fa91804f8887" name="Reason">
+            <semantic:typeRef>string</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_154f9f7a-165f-4686-8550-2d68a7df205c" name="Status">
+            <semantic:typeRef>tStatus</semantic:typeRef>
+        </semantic:itemComponent>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="tStatus" label="tStatus" isCollection="false">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues triso:constraintsType="enumeration">
+            <semantic:extensionElements>
+                <triso:constraintDetails>
+                    <triso:display>"Referred", "Approved", "Rejected"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Referred"</triso:value>
+                        <triso:display>"Referred"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Approved"</triso:value>
+                        <triso:display>"Approved"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Rejected"</triso:value>
+                        <triso:display>"Rejected"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Referred","Approved","Rejected"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:decisionService id="_5cad6605-a8a4-4065-a98e-fbeae53dedc7_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <semantic:variable name="Whole Model Decision Service" id="_5cad6605-a8a4-4065-a98e-fbeae53dedc7_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_4397dfc3-c344-4e69-ab5b-aa7506bc5610"/>
+        <semantic:encapsulatedDecision href="#_a0f523b8-ab83-4418-98c6-838e59108499"/>
+        <semantic:encapsulatedDecision href="#_776f723e-dd49-4a57-9a48-459f65701933"/>
+        <semantic:inputData href="#_402fc714-211f-49df-9267-35e93c3282e1"/>
+        <semantic:inputData href="#_6c3fdbf6-ae15-438d-a12a-777f327def2f"/>
+    </semantic:decisionService>
+    <semantic:decisionService id="_b0a11094-3f90-48d2-a1f3-e7dca07d3d6c_DS" name="Diagram Vacation Approval" triso:dynamicDecisionService="true">
+        <semantic:variable name="Diagram Vacation Approval" id="_b0a11094-3f90-48d2-a1f3-e7dca07d3d6c_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_4397dfc3-c344-4e69-ab5b-aa7506bc5610"/>
+        <semantic:encapsulatedDecision href="#_a0f523b8-ab83-4418-98c6-838e59108499"/>
+        <semantic:encapsulatedDecision href="#_776f723e-dd49-4a57-9a48-459f65701933"/>
+        <semantic:inputData href="#_402fc714-211f-49df-9267-35e93c3282e1"/>
+        <semantic:inputData href="#_6c3fdbf6-ae15-438d-a12a-777f327def2f"/>
+    </semantic:decisionService>
+    <semantic:decision id="_4397dfc3-c344-4e69-ab5b-aa7506bc5610" name="Vacation Approval" triso:readOnly="false">
+        <semantic:variable name="Vacation Approval" id="_5b540e7c-fa37-4bb9-8ab5-d0804432cd53" typeRef="tVacationApproval"/>
+        <semantic:informationRequirement id="_5bef7677-9832-4def-b738-4635fd243952" triso:readOnly="false">
+            <semantic:requiredInput href="#_402fc714-211f-49df-9267-35e93c3282e1"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_8757d8b6-92fb-4326-b351-9363b4a8b4d3" triso:readOnly="false">
+            <semantic:requiredInput href="#_6c3fdbf6-ae15-438d-a12a-777f327def2f"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_b7098056-8ecf-4a94-98bd-fd5f273a12ba" triso:readOnly="false">
+            <semantic:requiredDecision href="#_776f723e-dd49-4a57-9a48-459f65701933"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_73d67bc8-52fb-447a-939f-d0bc73028ce9" hitPolicy="PRIORITY" outputLabel="Vacation Approval" typeRef="tVacationApproval" triso:expressionId="_07e6b684-8acc-4126-aafd-3636612943be">
+            <semantic:input id="_2a752ffd-b3d3-4132-8daa-c965b7ea4a1c" triso:allowNull="true" label="Requested Days">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Requested Days</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:input id="_ec058fc4-d4b7-4d0c-8891-049c6a18daae" triso:allowNull="true" label="Employee Record.AvailableDays">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Employee Record.AvailableDays</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:output id="_899645ba-a483-421e-a0e0-729bdbd5b4f2" name="Reason" typeRef="string"/>
+            <semantic:output id="_066ab892-8b77-4ebd-b141-c064d49f00ae" name="Status" typeRef="tStatus">
+                <semantic:outputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Referred","Approved","Rejected"</semantic:text>
+                </semantic:outputValues>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_8fb01935-c74e-4c4f-9c7b-9f00aa48f13f">
+                <semantic:inputEntry id="_1c5f0cf7-3b68-4a38-b49d-399ee13ff553">
+                    <semantic:text>&lt;=2</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_b8c4d64e-859d-4364-9931-dcc0c3a70ed7">
+                    <semantic:text>&gt;=2</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_59cade6a-dc73-4f94-9c34-f36d6efbf4a9">
+                    <semantic:text>"Jepp, du kan dra på ferie"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:outputEntry id="_3a9ad8b1-d1db-4705-a0e4-14cfdccfc0f6">
+                    <semantic:text>"Approved"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_9770f60f-d8a4-42f5-8ee1-a2d5e90863ff">
+                <semantic:inputEntry id="_f2c5daa5-9892-49ff-8b0a-21ea9283a22f">
+                    <semantic:text>&gt;2</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_3c23d02a-5eca-4d83-8848-bda243113fdc">
+                    <semantic:text>&gt;=Requested Days</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_127fd112-b130-450f-8f9d-b3c072a0bf0e">
+                    <semantic:text>"Sjekk med sjefen først"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:outputEntry id="_68253a3c-d74c-4f51-bc9b-0fa7bcd19418">
+                    <semantic:text>"Referred"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_798b66ca-65c5-4f6a-ac26-5ab449c94e8d">
+                <semantic:inputEntry id="_5156716a-ef98-470b-999a-397cff228c5f">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_684397bb-f649-4505-92dc-ae44cc3f192e">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_91ed3e0b-5c53-4dba-91dd-76d7d5971db8">
+                    <semantic:text>"Søknad er avslått du har ikke nok feriedager "</semantic:text>
+                </semantic:outputEntry>
+                <semantic:outputEntry id="_36cca11f-55f2-40d9-8acd-2dd7dbef2e72">
+                    <semantic:text>"Rejected"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:inputData id="_402fc714-211f-49df-9267-35e93c3282e1" name="Vacation Request" triso:readOnly="false">
+        <semantic:variable name="Vacation Request" id="_6d9a1de5-1ea7-442d-9158-743459dd0c4a" typeRef="tVacationRequest"/>
+    </semantic:inputData>
+    <semantic:inputData id="_6c3fdbf6-ae15-438d-a12a-777f327def2f" name="Employee Record" triso:readOnly="false">
+        <semantic:variable name="Employee Record" id="_8333494e-a018-4938-acec-19b403385d7b" typeRef="tEmployeeVacationData"/>
+    </semantic:inputData>
+    <semantic:decision id="_a0f523b8-ab83-4418-98c6-838e59108499" name="Federal Holidays" triso:readOnly="false">
+        <semantic:variable name="Federal Holidays" id="_38ffcbb0-58a8-4078-8842-48773972092f" typeRef="Any"/>
+        <semantic:relation id="_d706ef9f-109a-4a5c-baf9-e49f7d9edaac" triso:descriptionVisible="false" typeRef="Any" triso:expressionId="_8882be91-518b-4920-b54a-72a6baa64ad4">
+            <semantic:column id="_11a8621b-3185-4ba1-9066-333fb3315c79" name="Holiday" typeRef="string"/>
+            <semantic:column id="_577a696e-7147-49a4-9235-31039cedd1fb" name="Date" typeRef="date"/>
+            <semantic:row id="_6c0d8d3c-7c23-4e44-80b9-b1fb4783676e">
+                <semantic:literalExpression id="_7e76d2f6-4623-471c-94a0-310c7e7e591d">
+                    <semantic:text>"Skjærtorsdag"</semantic:text>
+                </semantic:literalExpression>
+                <semantic:literalExpression id="_851f2714-1db6-497c-9c7d-83c3d8a1a445">
+                    <semantic:text>date("2023-04-06")</semantic:text>
+                </semantic:literalExpression>
+            </semantic:row>
+            <semantic:row id="_760963a2-3d96-417f-a612-8cb8b8f36030">
+                <semantic:literalExpression id="_ef184763-7bab-43b9-8072-e2b7f1c99833">
+                    <semantic:text>"Langfredag"</semantic:text>
+                </semantic:literalExpression>
+                <semantic:literalExpression id="_74f41325-ef48-4123-8766-5d4304b3d1d6">
+                    <semantic:text>date("2023-04-07")</semantic:text>
+                </semantic:literalExpression>
+            </semantic:row>
+            <semantic:row id="_8f81dbbe-c818-4ef1-bbb9-6b43cd5b1577">
+                <semantic:literalExpression id="_3a5cf6b2-fba3-4865-aa46-5248ff1267bb">
+                    <semantic:text>"2 påskedag"</semantic:text>
+                </semantic:literalExpression>
+                <semantic:literalExpression id="_b82eaf5a-f2b9-4621-a6f4-f731be654476">
+                    <semantic:text>date("2023-04-10")</semantic:text>
+                </semantic:literalExpression>
+            </semantic:row>
+            <semantic:row id="_68f8fb03-984c-40f5-8fe6-ae8cad3383e3">
+                <semantic:literalExpression id="_053e8f7d-f6ce-40e0-9fe3-0017dcda219a">
+                    <semantic:text>"Offentlig høytidsag"</semantic:text>
+                </semantic:literalExpression>
+                <semantic:literalExpression id="_2e2ac3f6-c227-483c-b346-c7d8a3bed0f2">
+                    <semantic:text>date("2023-05-01")</semantic:text>
+                </semantic:literalExpression>
+            </semantic:row>
+            <semantic:row id="_a6d39f9d-2c5b-4b47-91ec-730a525f8a4f">
+                <semantic:literalExpression id="_702ee31f-b993-4bb3-a7a3-de49413a401f">
+                    <semantic:text>"Narsjonaldagen"</semantic:text>
+                </semantic:literalExpression>
+                <semantic:literalExpression id="_934f9d48-2d5b-4793-8220-85133604fdb3">
+                    <semantic:text>date("2023-05-17")</semantic:text>
+                </semantic:literalExpression>
+            </semantic:row>
+            <semantic:row id="_6a60b2ee-6295-4e02-913f-33afaf3e49ec">
+                <semantic:literalExpression id="_105f15f4-7007-4635-937a-fff179a4f0c8">
+                    <semantic:text>"Kristi himmelfartsdag"</semantic:text>
+                </semantic:literalExpression>
+                <semantic:literalExpression id="_9fb9418d-59ee-4555-a051-ad972bc909bd">
+                    <semantic:text>date("2023-05-18")</semantic:text>
+                </semantic:literalExpression>
+            </semantic:row>
+            <semantic:row id="_bc775563-04ff-4ce4-9341-a2368e1b5266">
+                <semantic:literalExpression id="_d6959c4b-6947-4ca8-88b1-29de59d91bf5">
+                    <semantic:text>"2 pinsedag"</semantic:text>
+                </semantic:literalExpression>
+                <semantic:literalExpression id="_acc31836-c7c3-45a8-888d-8710c4e04311">
+                    <semantic:text>date("2023-05-29")</semantic:text>
+                </semantic:literalExpression>
+            </semantic:row>
+        </semantic:relation>
+    </semantic:decision>
+    <semantic:decision id="_776f723e-dd49-4a57-9a48-459f65701933" name="Requested Days" triso:readOnly="false">
+        <semantic:variable name="Requested Days" id="_6ebc4c73-2f90-4c83-877a-46f1c3145fb2" typeRef="number"/>
+        <semantic:informationRequirement id="_9560144e-2ffa-4eff-b7e6-fc5ee2350822" triso:readOnly="false">
+            <semantic:requiredInput href="#_402fc714-211f-49df-9267-35e93c3282e1"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_4d20d1f6-f708-40ba-bcf0-465d5bd02985" triso:readOnly="false">
+            <semantic:requiredDecision href="#_a0f523b8-ab83-4418-98c6-838e59108499"/>
+        </semantic:informationRequirement>
+        <semantic:context id="_5fa69272-7f5f-421e-ac06-1f4a98dfe04d" triso:descriptionVisible="false" typeRef="number" triso:expressionId="_a3946521-4574-48eb-8db9-284d67ae390b">
+            <semantic:contextEntry id="_7ff5e8c6-2b76-4f8a-857a-dae5c4369d0f">
+                <semantic:variable name="Raw Days" id="_07d64e0b-877f-4fc9-8691-5fbf1a2e7972" typeRef="number"/>
+                <semantic:literalExpression id="_2a6bfdf5-bb76-43bf-945b-cf44c3301409" triso:descriptionVisible="false">
+                    <semantic:text>(Vacation Request.vacation return - Vacation Request.vacation start)/duration("P1D")</semantic:text>
+                </semantic:literalExpression>
+            </semantic:contextEntry>
+            <semantic:contextEntry id="_df8ed026-9d2f-4488-a141-9715a57b6933">
+                <semantic:variable name="Weekend Days" id="_aeb290c0-2924-41d6-8f3b-90980fa1e003" typeRef="number"/>
+                <semantic:literalExpression id="_3190b55c-2755-45b8-8fbb-e5ffc51ee44a" triso:descriptionVisible="false">
+                    <semantic:text>floor(Raw Days/7)*2</semantic:text>
+                </semantic:literalExpression>
+            </semantic:contextEntry>
+            <semantic:contextEntry id="_353cc30b-4f7a-4beb-afed-a79da42883d7">
+                <semantic:variable name="Return earlier weekday" id="_8ea6e5cd-958e-465f-a777-1270b165de73" typeRef="number"/>
+                <semantic:literalExpression id="_887aef7b-a338-48aa-b472-c9dffed21576" triso:descriptionVisible="false">
+                    <semantic:text>if Vacation Request.vacation return.weekday&gt;Vacation Request.vacation start.weekday then 0 else 2</semantic:text>
+                </semantic:literalExpression>
+            </semantic:contextEntry>
+            <semantic:contextEntry id="_eaa7c12d-20e5-4e68-b250-55b82c69030d">
+                <semantic:variable name="Include holidays" id="_392bc812-f484-487a-99ee-2a8131f20ba1" typeRef="number"/>
+                <semantic:literalExpression id="_28452e53-c1b7-427d-b33f-995dd41d8384" triso:descriptionVisible="false">
+                    <semantic:text>count(Federal Holidays[Date in [Vacation Request.vacation start..Vacation Request.vacation return)])</semantic:text>
+                </semantic:literalExpression>
+            </semantic:contextEntry>
+            <semantic:contextEntry id="_2a1aaeb3-fbe5-426f-bce8-982f03ef7371">
+                <semantic:literalExpression id="_502ea582-c647-4871-af5d-9ff41af3ffe1">
+                    <semantic:text>((Raw Days - Return earlier weekday) - Weekend Days)-Include holidays</semantic:text>
+                </semantic:literalExpression>
+            </semantic:contextEntry>
+        </semantic:context>
+    </semantic:decision>
+    <semantic:decisionService id="_61feb10a-1f5f-41ae-8c55-e20fde69ca68" name="Approve Vacation Request" triso:readOnly="false">
+        <semantic:variable name="Approve Vacation Request" id="_766a62d7-23d7-4727-a4dd-1b37d398d323" typeRef="Any"/>
+        <semantic:outputDecision href="#_776f723e-dd49-4a57-9a48-459f65701933"/>
+        <semantic:outputDecision href="#_4397dfc3-c344-4e69-ab5b-aa7506bc5610"/>
+        <semantic:inputDecision href="#_a0f523b8-ab83-4418-98c6-838e59108499"/>
+        <semantic:inputData href="#_402fc714-211f-49df-9267-35e93c3282e1"/>
+        <semantic:inputData href="#_6c3fdbf6-ae15-438d-a12a-777f327def2f"/>
+    </semantic:decisionService>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="_b0a11094-3f90-48d2-a1f3-e7dca07d3d6c" triso:modelElementRef="_86b3b56a-9a2f-46ff-b752-aa6bf77877f1" name="Vacation Approval">
+            <di:extension/>
+            <dmndi:Size height="1050" width="1654.2411708831787"/>
+            <dmndi:DMNShape id="_b22b424d-3ac4-4c13-9c58-098c073b16c9" dmnElementRef="_4397dfc3-c344-4e69-ab5b-aa7506bc5610">
+                <dc:Bounds x="593.7411708831787" y="84" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_5cad6605-a8a4-4065-a98e-fbeae53dedc7_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_30dc5cc4-0ea8-444d-a57e-8d7a2b94c343" dmnElementRef="_402fc714-211f-49df-9267-35e93c3282e1">
+                <dc:Bounds x="447.5" y="362.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_5cad6605-a8a4-4065-a98e-fbeae53dedc7_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_7fc07c9c-b1c2-4b49-aedc-dd3d22eeb97c" dmnElementRef="_6c3fdbf6-ae15-438d-a12a-777f327def2f">
+                <dc:Bounds x="721.5" y="362.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_5cad6605-a8a4-4065-a98e-fbeae53dedc7_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_1350190a-466f-460f-882a-bcad2c415f11" dmnElementRef="_a0f523b8-ab83-4418-98c6-838e59108499">
+                <dc:Bounds x="175.5" y="242" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_5cad6605-a8a4-4065-a98e-fbeae53dedc7_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_9a2d88e7-10a3-4ef2-bc7d-a1a37e6ad29f" dmnElementRef="_776f723e-dd49-4a57-9a48-459f65701933">
+                <dc:Bounds x="429.9823417663574" y="242" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_5cad6605-a8a4-4065-a98e-fbeae53dedc7_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="_d599e9c9-64c5-4305-8c02-68f9f2dc2507" dmnElementRef="_5bef7677-9832-4def-b738-4635fd243952" sourceElement="_30dc5cc4-0ea8-444d-a57e-8d7a2b94c343" targetElement="_b22b424d-3ac4-4c13-9c58-098c073b16c9">
+                <di:waypoint x="505.2379722595215" y="362.99999618530273"/>
+                <di:waypoint x="650.2411708831787" y="316.6209951903422"/>
+                <di:waypoint x="650.2411708831787" y="144"/>
+                <dmndi:DMNLabel sharedStyle="LS_5cad6605-a8a4-4065-a98e-fbeae53dedc7_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_5ec4d1e4-7ffe-4097-aa19-8ad5569da6b5" dmnElementRef="_8757d8b6-92fb-4326-b351-9363b4a8b4d3" sourceElement="_7fc07c9c-b1c2-4b49-aedc-dd3d22eeb97c" targetElement="_b22b424d-3ac4-4c13-9c58-098c073b16c9">
+                <di:waypoint x="789.2379722595215" y="362.99999618530273"/>
+                <di:waypoint x="670.2411708831787" y="318.49999809265137"/>
+                <di:waypoint x="670.2411708831787" y="144"/>
+                <dmndi:DMNLabel sharedStyle="LS_5cad6605-a8a4-4065-a98e-fbeae53dedc7_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_6b55847d-d281-4ec4-974b-fcc5cc3d8e5e" dmnElementRef="_9560144e-2ffa-4eff-b7e6-fc5ee2350822" sourceElement="_30dc5cc4-0ea8-444d-a57e-8d7a2b94c343" targetElement="_9a2d88e7-10a3-4ef2-bc7d-a1a37e6ad29f">
+                <di:waypoint x="505.2379722595215" y="362.99999618530273"/>
+                <di:waypoint x="506.4823417663574" y="302"/>
+                <dmndi:DMNLabel sharedStyle="LS_5cad6605-a8a4-4065-a98e-fbeae53dedc7_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_45cad112-2e0e-4228-87f5-26257bb0effe" dmnElementRef="_4d20d1f6-f708-40ba-bcf0-465d5bd02985" sourceElement="_1350190a-466f-460f-882a-bcad2c415f11" targetElement="_9a2d88e7-10a3-4ef2-bc7d-a1a37e6ad29f">
+                <di:waypoint x="328.5" y="272"/>
+                <di:waypoint x="429.9823417663574" y="272"/>
+                <dmndi:DMNLabel sharedStyle="LS_5cad6605-a8a4-4065-a98e-fbeae53dedc7_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_c6f5eb18-0e30-40c9-9ee0-1a294481efe2" dmnElementRef="_b7098056-8ecf-4a94-98bd-fd5f273a12ba" sourceElement="_9a2d88e7-10a3-4ef2-bc7d-a1a37e6ad29f" targetElement="_b22b424d-3ac4-4c13-9c58-098c073b16c9">
+                <di:waypoint x="506.4823417663574" y="242"/>
+                <di:waypoint x="630.2411708831787" y="144"/>
+                <dmndi:DMNLabel sharedStyle="LS_5cad6605-a8a4-4065-a98e-fbeae53dedc7_0"/>
+            </dmndi:DMNEdge>
+        </dmndi:DMNDiagram>
+        <dmndi:DMNStyle id="LS_5cad6605-a8a4-4065-a98e-fbeae53dedc7_0" fontFamily="arial,helvetica,sans-serif" fontSize="11" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false"/>
+    </dmndi:DMNDI>
+</semantic:definitions>
