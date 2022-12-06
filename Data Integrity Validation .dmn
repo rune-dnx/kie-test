@@ -86,12 +86,12 @@
         <semantic:typeRef>string</semantic:typeRef>
     </semantic:itemDefinition>
     <semantic:decisionService id="_d04721bc-f39a-48d8-9824-137e7a19c0e8_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
-        <semantic:variable name="Whole Model Decision Service" id="_d04721bc-f39a-48d8-9824-137e7a19c0e8_DS_VAR" typeRef="Any"/>
+        <semantic:variable name="Whole Model Decision Service" id="_d04721bc-f39a-48d8-9824-137e7a19c0e8_DS_VAR" typeRef="string"/>
         <semantic:outputDecision href="#_cf2f255a-7d55-4886-b46f-39cecd20cc22"/>
         <semantic:inputData href="#_3796d1b4-1767-4f9d-b03c-5e372c584bad"/>
     </semantic:decisionService>
     <semantic:decisionService id="_8bef6cbb-dc19-4c34-aa22-b185341bb50d_DS" name="Diagram Page 1" triso:dynamicDecisionService="true">
-        <semantic:variable name="Diagram Page 1" id="_8bef6cbb-dc19-4c34-aa22-b185341bb50d_DS_VAR" typeRef="Any"/>
+        <semantic:variable name="Diagram Page 1" id="_8bef6cbb-dc19-4c34-aa22-b185341bb50d_DS_VAR" typeRef="string"/>
         <semantic:outputDecision href="#_cf2f255a-7d55-4886-b46f-39cecd20cc22"/>
         <semantic:inputData href="#_3796d1b4-1767-4f9d-b03c-5e372c584bad"/>
     </semantic:decisionService>
@@ -102,7 +102,7 @@
         </semantic:informationRequirement>
         <semantic:context id="_fdac7b2c-b60e-43c8-b2ac-f788d806de6c" triso:descriptionVisible="false" typeRef="collectionOfString" triso:expressionId="_04c11ad9-a63a-4333-b56f-72eba24ebd2e">
             <semantic:contextEntry id="_b15727b0-fbb5-47ea-96c5-4b29f3ef2eb8">
-                <semantic:variable name="stringn" id="_a6babc1a-7285-4c51-b304-3c51bc2e09a8" typeRef="Any"/>
+                <semantic:variable name="stringn" id="_a6babc1a-7285-4c51-b304-3c51bc2e09a8" typeRef="string"/>
                 <semantic:functionDefinition id="_78048a14-9292-4426-aa56-5c9fc18e7acf" kind="FEEL" triso:descriptionVisible="false">
                     <semantic:formalParameter name="text" typeRef="string" id="_bb26a4cf-53fd-4c78-837d-890d1f89c8eb"/>
                     <semantic:literalExpression id="_7f43c807-e6fe-4748-a91b-e86d22150829">
