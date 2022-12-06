@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<semantic:definitions xmlns:semantic="https://www.omg.org/spec/DMN/20191111/MODEL/"  xmlns:triso="http://www.trisotech.com/2015/triso/modeling"  xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/"  xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/"  xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"  xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn"  xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/"  xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase"  xmlns:drools="http://www.drools.org/kie/dmn/1.1"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:rss="http://purl.org/rss/2.0/"  xmlns:openapi="https://openapis.org/omg/extension/1.0"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/"   xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0"  xmlns="http://www.trisotech.com/definitions/_d04721bc-f39a-48d8-9824-137e7a19c0e8" id="_d04721bc-f39a-48d8-9824-137e7a19c0e8" name="Data Integrity Validation " namespace="http://www.trisotech.com/definitions/_d04721bc-f39a-48d8-9824-137e7a19c0e8" exporter="Decision Modeler" exporterVersion="8.3.4" xml:lang="en" triso:logoChoice="Default">
+    <semantic:extensionElements>
+        <tc:testCases>
+            <tc:testCase id="_6e3824c9-dc92-4ddc-bcbd-4f1f3083ea4d" name="Test case 1">
+                <tc:inputNode name="Trade Request">
+                    <tc:component name="Ticker">
+                        <tc:value xsi:type="string">AMZN</tc:value>
+                    </tc:component>
+                    <tc:component name="TradeType">
+                        <tc:value xsi:type="string">Buy</tc:value>
+                    </tc:component>
+                    <tc:component name="Shares">
+                        <tc:value xsi:type="double">10</tc:value>
+                    </tc:component>
+                    <tc:component name="Timestamp">
+                        <tc:value xsi:type="dateTime">2022-10-06T14:40:40</tc:value>
+                    </tc:component>
+                </tc:inputNode>
+                <tc:resultNode id="_6965a9bc-69c8-4cff-8246-c996914bee58" name="Data integrity errors">
+                    <tc:expected>
+                        <tc:value xsi:nil="true"/>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+        </tc:testCases>
+    </semantic:extensionElements>
+    <semantic:itemDefinition name="tTrade" label="tTrade">
+        <semantic:itemComponent id="_3533b221-bcc6-42b1-aa39-5ab8b56605e0" name="ID">
+            <semantic:typeRef>number</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_018dc00a-ccda-4e61-beae-cfde99866c10" name="Timestamp">
+            <semantic:typeRef>dateTime</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_ddf79b8c-4e31-495c-9418-426cd8e5d2d7" name="Account">
+            <semantic:typeRef>string</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_69c6374a-75a6-4aa5-86fa-162ee1c8da44" name="Ticker">
+            <semantic:typeRef>string</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_28e4dc02-55d5-44fb-adb5-e5ae0a2a4e5c" name="TradeType">
+            <semantic:typeRef>tTradeType</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_148e0730-34d0-432e-a4c0-1ce4208b771e" name="Shares">
+            <semantic:typeRef>number</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_7a2b573c-4f59-457b-8d36-2c2021c813dd" name="Price">
+            <semantic:typeRef>number</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_2274efd8-6bae-4da6-b72d-ca2c6a7e55d2" name="Value">
+            <semantic:typeRef>number</semantic:typeRef>
+        </semantic:itemComponent>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="tTradeType2" label="tTradeType2">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues triso:constraintsType="enumeration">
+            <semantic:extensionElements>
+                <triso:constraintDetails>
+                    <triso:display>"Buy", "Sell"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Buy"</triso:value>
+                        <triso:display>"Buy"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Sell"</triso:value>
+                        <triso:display>"Sell"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Buy","Sell"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="tTradeType" label="tTradeType">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues triso:constraintsType="enumeration">
+            <semantic:extensionElements>
+                <triso:constraintDetails>
+                    <triso:display>"Bui", "Sell", "Init"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Bui"</triso:value>
+                        <triso:display>"Bui"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Sell"</triso:value>
+                        <triso:display>"Sell"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Init"</triso:value>
+                        <triso:display>"Init"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Bui","Sell","Init"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="tTradeRequest" label="tTradeRequest">
+        <semantic:itemComponent id="_d01d7f94-e929-4c66-a503-2022d6449485" name="Ticker">
+            <semantic:typeRef>string</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_e9c2376f-0b51-45e5-9e23-16508f2b271e" name="TradeType">
+            <semantic:typeRef>tTradeType2</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_8e5b1df3-104e-473a-ab5c-2b6c69f3ea4d" name="Shares">
+            <semantic:typeRef>number</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_f778cc78-50ff-436d-ba71-d376a3320660" name="Timestamp">
+            <semantic:typeRef>dateTime</semantic:typeRef>
+        </semantic:itemComponent>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="collectionOfString" isCollection="true">
+        <semantic:typeRef>string</semantic:typeRef>
+    </semantic:itemDefinition>
+    <semantic:decisionService id="_d04721bc-f39a-48d8-9824-137e7a19c0e8_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <semantic:variable name="Whole Model Decision Service" id="_d04721bc-f39a-48d8-9824-137e7a19c0e8_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_cf2f255a-7d55-4886-b46f-39cecd20cc22"/>
+        <semantic:inputData href="#_3796d1b4-1767-4f9d-b03c-5e372c584bad"/>
+    </semantic:decisionService>
+    <semantic:decisionService id="_8bef6cbb-dc19-4c34-aa22-b185341bb50d_DS" name="Diagram Page 1" triso:dynamicDecisionService="true">
+        <semantic:variable name="Diagram Page 1" id="_8bef6cbb-dc19-4c34-aa22-b185341bb50d_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_cf2f255a-7d55-4886-b46f-39cecd20cc22"/>
+        <semantic:inputData href="#_3796d1b4-1767-4f9d-b03c-5e372c584bad"/>
+    </semantic:decisionService>
+    <semantic:decision id="_cf2f255a-7d55-4886-b46f-39cecd20cc22" name="Data integrity errors" triso:readOnly="false">
+        <semantic:variable name="Data integrity errors" id="_08c63c00-5ef9-4973-a792-c3a67c478067" typeRef="collectionOfString"/>
+        <semantic:informationRequirement id="_d2a90af6-c3e9-4e4b-91ae-10c578683b38" triso:readOnly="false">
+            <semantic:requiredInput href="#_3796d1b4-1767-4f9d-b03c-5e372c584bad"/>
+        </semantic:informationRequirement>
+        <semantic:context id="_fdac7b2c-b60e-43c8-b2ac-f788d806de6c" triso:descriptionVisible="false" typeRef="collectionOfString" triso:expressionId="_04c11ad9-a63a-4333-b56f-72eba24ebd2e">
+            <semantic:contextEntry id="_b15727b0-fbb5-47ea-96c5-4b29f3ef2eb8">
+                <semantic:variable name="stringn" id="_a6babc1a-7285-4c51-b304-3c51bc2e09a8" typeRef="Any"/>
+                <semantic:functionDefinition id="_78048a14-9292-4426-aa56-5c9fc18e7acf" kind="FEEL" triso:descriptionVisible="false">
+                    <semantic:formalParameter name="text" typeRef="string" id="_bb26a4cf-53fd-4c78-837d-890d1f89c8eb"/>
+                    <semantic:literalExpression id="_7f43c807-e6fe-4748-a91b-e86d22150829">
+                        <semantic:text>if text=null then "null" else string(text)</semantic:text>
+                    </semantic:literalExpression>
+                </semantic:functionDefinition>
+            </semantic:contextEntry>
+            <semantic:contextEntry id="_441dcbef-b049-483d-977f-72bd52a6852d">
+                <semantic:variable name="Missing components" id="_2785cdf8-71b2-4278-a981-80cf4365639d" typeRef="collectionOfString"/>
+                <semantic:literalExpression id="_1f5b3a92-608e-4eac-ab28-9ed97fcccfd9" expressionLanguage="https://www.omg.org/spec/DMN/20191111/FEEL/" triso:unparsed="true" triso:descriptionVisible="false">
+                    <semantic:text>for x in get entries(Trade Request)[value=null] return 
+"Trade Request component " + stringn(x.key)+ " is missing."</semantic:text>
+                </semantic:literalExpression>
+            </semantic:contextEntry>
+            <semantic:contextEntry id="_b1d62942-89b7-41f9-beab-9cf828e9a971">
+                <semantic:variable name="Other integrity rules" id="_7e612acc-c4e4-4a25-9ca4-6eb416929258" typeRef="collectionOfString"/>
+                <semantic:decisionTable triso:descriptionVisible="false" id="_e73bd4ee-4365-4833-a027-a078fa8b1aa9" hitPolicy="COLLECT" outputLabel="Other integrity rules">
+                    <semantic:input id="_0b2ed9ec-eee1-49d3-bb6b-25d2ad662caf" triso:allowNull="true" label="Trade Request">
+                        <semantic:inputExpression typeRef="tTradeRequest">
+                            <semantic:text>Trade Request</semantic:text>
+                        </semantic:inputExpression>
+                    </semantic:input>
+                    <semantic:output id="_de87feb5-fd07-4855-afde-0c9dd9ffa423" triso:allowNull="true"/>
+                    <semantic:annotation name="Description"/>
+                    <semantic:rule id="_85dd47cf-bd92-464b-a08a-2de951609f9f">
+                        <semantic:inputEntry id="_328b374b-90d1-4ab8-a2d4-cc0d006d784f">
+                            <semantic:text>if ?.Ticker instance of string then not(string length(?.Ticker) in [1..5]) or contains(?.Ticker, ",") else false </semantic:text>
+                        </semantic:inputEntry>
+                        <semantic:outputEntry id="_ffb0d4c0-7297-49d2-84f7-9577a116b5b8">
+                            <semantic:text>"Ticker must be 1 - 5 characters and may not contain commas"</semantic:text>
+                        </semantic:outputEntry>
+                        <semantic:annotationEntry>
+                            <semantic:text/>
+                        </semantic:annotationEntry>
+                    </semantic:rule>
+                    <semantic:rule id="_12e13568-568b-41b0-8ab0-ffe6b52279b5">
+                        <semantic:inputEntry id="_44a2dde6-5f68-4471-a3ae-78e7b403c77c">
+                            <semantic:text>if ?.Shares instance of number then floor(?.Shares)!=?.Shares else true </semantic:text>
+                        </semantic:inputEntry>
+                        <semantic:outputEntry id="_014a7bff-fe7c-4f9d-95c9-e425edeb72a6">
+                            <semantic:text>"Shares must be an integer number"</semantic:text>
+                        </semantic:outputEntry>
+                        <semantic:annotationEntry>
+                            <semantic:text/>
+                        </semantic:annotationEntry>
+                    </semantic:rule>
+                    <semantic:rule id="_3eda003b-7749-4aa9-8422-8c80026faf1f">
+                        <semantic:inputEntry id="_5f0c0e27-1731-4d1e-bba5-403b563ab021">
+                            <semantic:text>not(list contains(["Buy","Sell"], ?.TradeType))</semantic:text>
+                        </semantic:inputEntry>
+                        <semantic:outputEntry id="_bc0157c2-0796-4c21-9958-2b31c72d6ae9">
+                            <semantic:text>"TradeType must be either Buy or Sell"</semantic:text>
+                        </semantic:outputEntry>
+                        <semantic:annotationEntry>
+                            <semantic:text/>
+                        </semantic:annotationEntry>
+                    </semantic:rule>
+                    <semantic:rule id="_d7518b1c-81fb-4b29-b677-86f112fbfb01">
+                        <semantic:inputEntry id="_181e7f23-2fe4-4359-a714-5464c4b602d2">
+                            <semantic:text>if ?.TradeType="Buy" and ?.Shares instance of number then ?.Shares&lt;=0 else false</semantic:text>
+                        </semantic:inputEntry>
+                        <semantic:outputEntry id="_73fe4e35-5037-488b-9a55-499aab406522">
+                            <semantic:text>"Shares for Buy must be a positive number"</semantic:text>
+                        </semantic:outputEntry>
+                        <semantic:annotationEntry>
+                            <semantic:text/>
+                        </semantic:annotationEntry>
+                    </semantic:rule>
+                    <semantic:rule id="_fc67498d-fa21-426d-a9a1-206275a7f178">
+                        <semantic:inputEntry id="_0955c3b4-51d7-4eca-b36e-371a47aff220">
+                            <semantic:text>if ?.TradeType="Sell" and ?.Shares instance of number then ?.Shares&gt;=0 else false</semantic:text>
+                        </semantic:inputEntry>
+                        <semantic:outputEntry id="_c16f6053-3f17-4ee5-b8bd-a315a7769d22">
+                            <semantic:text>"Shares for Sell must be a negative number"</semantic:text>
+                        </semantic:outputEntry>
+                        <semantic:annotationEntry>
+                            <semantic:text/>
+                        </semantic:annotationEntry>
+                    </semantic:rule>
+                    <semantic:rule id="_321b59ff-4178-43da-b85b-d8821899be3f">
+                        <semantic:inputEntry id="_a487d235-f29a-4f26-a3bd-346d06e308a4">
+                            <semantic:text>not(?.Timestamp instance of dateTime)</semantic:text>
+                        </semantic:inputEntry>
+                        <semantic:outputEntry id="_010caab1-b824-4485-a5c4-85f0e44ff09b">
+                            <semantic:text>"Timestamp must be a FEEL date and time value"</semantic:text>
+                        </semantic:outputEntry>
+                        <semantic:annotationEntry>
+                            <semantic:text/>
+                        </semantic:annotationEntry>
+                    </semantic:rule>
+                </semantic:decisionTable>
+            </semantic:contextEntry>
+            <semantic:contextEntry id="_0e02679f-a395-4af8-a7c6-cbe5c487fa2e">
+                <semantic:literalExpression id="_cb02c00b-2948-4d33-bfbe-f79865591e70">
+                    <semantic:text>concatenate(Missing components, Other integrity rules)</semantic:text>
+                </semantic:literalExpression>
+            </semantic:contextEntry>
+        </semantic:context>
+    </semantic:decision>
+    <semantic:inputData id="_3796d1b4-1767-4f9d-b03c-5e372c584bad" name="Trade Request" triso:readOnly="false">
+        <semantic:variable name="Trade Request" id="_2e377eaf-1e61-4ae0-97b5-1637248a6f4d" typeRef="tTradeRequest"/>
+    </semantic:inputData>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="_8bef6cbb-dc19-4c34-aa22-b185341bb50d" triso:modelElementRef="_59f887ab-1529-411e-8e98-62ec82a82b30" name="Page 1">
+            <di:extension/>
+            <dmndi:Size height="1050" width="1485"/>
+            <dmndi:DMNShape id="_678be1c3-1cd7-4726-a330-52d544405395" dmnElementRef="_cf2f255a-7d55-4886-b46f-39cecd20cc22">
+                <dc:Bounds x="617.5" y="118" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_d04721bc-f39a-48d8-9824-137e7a19c0e8_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_5a4f2973-76be-4c29-a2e4-927321647d2c" dmnElementRef="_3796d1b4-1767-4f9d-b03c-5e372c584bad">
+                <dc:Bounds x="626.2588291168213" y="353.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_d04721bc-f39a-48d8-9824-137e7a19c0e8_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="_56b80c8b-d520-4813-8894-e5b56b13fab2" dmnElementRef="_d2a90af6-c3e9-4e4b-91ae-10c578683b38" sourceElement="_5a4f2973-76be-4c29-a2e4-927321647d2c" targetElement="_678be1c3-1cd7-4726-a330-52d544405395">
+                <di:waypoint x="693.9968013763428" y="353.99999618530273"/>
+                <di:waypoint x="694" y="178"/>
+                <dmndi:DMNLabel sharedStyle="LS_d04721bc-f39a-48d8-9824-137e7a19c0e8_0"/>
+            </dmndi:DMNEdge>
+        </dmndi:DMNDiagram>
+        <dmndi:DMNStyle id="LS_d04721bc-f39a-48d8-9824-137e7a19c0e8_0" fontFamily="arial,helvetica,sans-serif" fontSize="11" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false"/>
+    </dmndi:DMNDI>
+</semantic:definitions>
