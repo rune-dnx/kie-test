@@ -27,12 +27,6 @@
       <dmn:typeRef>number</dmn:typeRef>
     </dmn:itemComponent>
   </dmn:itemDefinition>
-  <dmn:itemDefinition id="_ACC2034B-81C8-4A0C-997F-EF42D0F5A4F8" name="tTradeType2" isCollection="false">
-    <dmn:typeRef>string</dmn:typeRef>
-    <dmn:allowedValues id="_45EADCEA-6C40-45AA-BF54-B1FCD7FF1B65">
-      <dmn:text>"Buy","Sell"</dmn:text>
-    </dmn:allowedValues>
-  </dmn:itemDefinition>
   <dmn:itemDefinition id="_CDDCDAEB-C9CD-47FB-9600-CA02CE6B8CF0" name="tTradeType" isCollection="false">
     <dmn:typeRef>string</dmn:typeRef>
     <dmn:allowedValues id="_C0446E78-B1A5-4F57-B294-C0EFE0773C85">
@@ -40,11 +34,11 @@
     </dmn:allowedValues>
   </dmn:itemDefinition>
   <dmn:itemDefinition id="_1D3C7FD6-20E4-4209-9590-FECCC8D7D2C9" name="tTradeRequest" isCollection="false">
+    <dmn:itemComponent id="_1774CF4D-C57C-4417-B9B5-1074594A1096" name="TradeType" isCollection="false">
+      <dmn:typeRef>tTradeType</dmn:typeRef>
+    </dmn:itemComponent>
     <dmn:itemComponent id="_d01d7f94-e929-4c66-a503-2022d6449485" name="Ticker" isCollection="false">
       <dmn:typeRef>string</dmn:typeRef>
-    </dmn:itemComponent>
-    <dmn:itemComponent id="_e9c2376f-0b51-45e5-9e23-16508f2b271e" name="TradeType" isCollection="false">
-      <dmn:typeRef>tTradeType2</dmn:typeRef>
     </dmn:itemComponent>
     <dmn:itemComponent id="_8e5b1df3-104e-473a-ab5c-2b6c69f3ea4d" name="Shares" isCollection="false">
       <dmn:typeRef>number</dmn:typeRef>
@@ -204,7 +198,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="617.5" y="118" width="153" height="60"/>
+        <dc:Bounds x="632.5" y="118" width="153" height="60"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_3796d1b4-1767-4f9d-b03c-5e372c584bad" dmnElementRef="_3796d1b4-1767-4f9d-b03c-5e372c584bad" isCollapsed="false">
@@ -218,7 +212,7 @@
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_C513B0B6-801B-4FBD-A745-963F676FF589" dmnElementRef="_C513B0B6-801B-4FBD-A745-963F676FF589">
         <di:waypoint x="694" y="384"/>
-        <di:waypoint x="694" y="178"/>
+        <di:waypoint x="709" y="178"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
