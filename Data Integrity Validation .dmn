@@ -29,8 +29,8 @@
   </dmn:itemDefinition>
   <dmn:itemDefinition id="_CDDCDAEB-C9CD-47FB-9600-CA02CE6B8CF0" name="tTradeType" isCollection="false">
     <dmn:typeRef>string</dmn:typeRef>
-    <dmn:allowedValues id="_C0446E78-B1A5-4F57-B294-C0EFE0773C85">
-      <dmn:text>"Bui","Sell","Init"</dmn:text>
+    <dmn:allowedValues drools:constraintType="enumeration" id="_24584281-AC76-40BF-B042-E97155539434">
+      <dmn:text>"Buy", "Sell", "Init"</dmn:text>
     </dmn:allowedValues>
   </dmn:itemDefinition>
   <dmn:itemDefinition id="_1D3C7FD6-20E4-4209-9590-FECCC8D7D2C9" name="tTradeRequest" isCollection="false">
